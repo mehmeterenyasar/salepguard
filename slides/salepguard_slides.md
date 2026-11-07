@@ -84,7 +84,7 @@ Live: https://salepguard.streamlit.app
 
 ![w:560](../outputs/figures/protection_gap.png)
 
-- Only **4.4 %** of salep-orchid suitable area lies inside protected areas, the same as Turkey's average (4.4 %, OSM layer)
+- Only **4.4 %** of salep-orchid suitable area lies inside protected areas, the same as Turkey's average (4.4 %, WDPA + OSM layer)
 - Median species: **6.6 %** protected
 
 <span class="small">Baseline model numbers; they will be updated with the final model.</span>

@@ -1,8 +1,8 @@
 # Pre-submission checklist (deadline 8 Nov 2026, 11:00 EET = 12:00 TRT; aim for 11:00 TRT)
 
 ## Data and models
-- [ ] GBIF Download API run with credentials → DOI in README, manifest, Devpost
-- [ ] WDPA Turkey placed in `data/raw/wdpa/` → `python run_all.py --only protected` then `--from risk`
+- [x] GBIF Download API run → DOI 10.15468/dl.mfzrky in README, manifest, Devpost
+- [x] WDPA Nov 2026 (17 public Turkish sites) merged with OSM protected areas
 - [ ] Final model outputs in `outputs/models/` → `python scripts/validate_outputs.py outputs/models` passes
 - [ ] `python run_all.py --from risk` (index, comparison, web layers, figures) re-run with the final model
 - [ ] README / slides / Devpost numbers updated from `outputs/risk/summary.json`

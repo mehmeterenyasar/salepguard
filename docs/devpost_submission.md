@@ -27,7 +27,7 @@ uncertainty-aware tool that shows where to focus monitoring, protection and sust
 
 ## Solution / approach
 
-1. **Data:** 62,233 GBIF orchid records across the Eastern Mediterranean; WorldClim 2.1 climate plus
+1. **Data:** 62,435 GBIF orchid records across the Eastern Mediterranean; WorldClim 2.1 climate plus
    CMIP6 projections (3 GCMs, SSP2-4.5 and SSP5-8.5); WorldPop population; travel time to cities;
    OpenStreetMap/WDPA protected areas; geoBoundaries provinces.
 2. **Cleaning:** CoordinateCleaner-style filters leave 24,557 salep-genus records. 20 species meet the
@@ -50,7 +50,7 @@ overpass-api, geoboundaries, github, claude-code (TODO: add the teammate's R/Pyt
 
 ## Data sources
 
-GBIF.org occurrence data (TODO: download DOI); WorldClim 2.1 (Fick & Hijmans 2017) and WorldClim CMIP6
+GBIF.org occurrence download (https://doi.org/10.15468/dl.mfzrky); WorldClim 2.1 (Fick & Hijmans 2017) and WorldClim CMIP6
 downscaled projections; WorldPop 2020 (CC BY 4.0); Weiss et al. 2018 travel time to cities (Malaria Atlas
 Project); OpenStreetMap (ODbL) / WDPA (UNEP-WCMC & IUCN); geoBoundaries (CC BY-SA 2.0); Natural Earth
 (public domain). Full table with licences: `docs/data_sources.md`.

@@ -1,8 +1,8 @@
 dataset,step,removed,remaining
-background (all Orchidaceae),raw GBIF records in extent,0,62233
-background (all Orchidaceae),missing coordinates,0,62233
-background (all Orchidaceae),basisOfRecord fossil/living,72,62161
-background (all Orchidaceae),missing year,0,62161
+background (all Orchidaceae),raw GBIF records in extent,0,62435
+background (all Orchidaceae),missing coordinates,0,62435
+background (all Orchidaceae),basisOfRecord fossil/living,72,62363
+background (all Orchidaceae),missing year,202,62161
 background (all Orchidaceae),year < 1970,1591,60570
 background (all Orchidaceae),(info) missing coordinate uncertainty kept,0,8195
 background (all Orchidaceae),coordinate uncertainty > 5000 m,23967,36603
@@ -12,10 +12,10 @@ background (all Orchidaceae),country/province centroids (<1000 m),357,36238
 background (all Orchidaceae),capitals (<10 km),549,35689
 background (all Orchidaceae),GBIF headquarters,0,35689
 background (all Orchidaceae),sea / no climate data,96,35593
-salep genera (species level),raw GBIF records in extent,0,54249
-salep genera (species level),missing coordinates,0,54249
-salep genera (species level),basisOfRecord fossil/living,1,54248
-salep genera (species level),missing year,0,54248
+salep genera (species level),raw GBIF records in extent,0,54391
+salep genera (species level),missing coordinates,0,54391
+salep genera (species level),basisOfRecord fossil/living,1,54390
+salep genera (species level),missing year,142,54248
 salep genera (species level),year < 1970,1288,52960
 salep genera (species level),(info) missing coordinate uncertainty kept,0,6549
 salep genera (species level),coordinate uncertainty > 5000 m,21754,31206

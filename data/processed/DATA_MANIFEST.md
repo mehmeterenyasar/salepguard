@@ -1,6 +1,6 @@
 # DATA_MANIFEST
 
-Generated 2026-11-07 18:01 UTC by `src/data/manifest.py`.
+Generated 2026-11-07 18:02 UTC by `src/data/manifest.py`.
 
 ## Shared grid
 
@@ -11,9 +11,9 @@ Generated 2026-11-07 18:01 UTC by `src/data/manifest.py`.
 ## GBIF occurrence download
 
 - Method: GBIF Download API (SIMPLE_CSV)
-- DOI: none (search API fallback) - TODO: replace with Download API DOI
-- Retrieved: 2026-11-07T17:49:30.361596+00:00
-- Records: None
+- DOI: https://doi.org/10.15468/dl.mfzrky
+- Retrieved: 2026-11-07T17:49:30.347+00:00
+- Records: 62435
 - Query: familyKey=7689 (Orchidaceae), hasCoordinate=true, hasGeospatialIssue=false, occurrenceStatus=PRESENT, within training-extent polygon
 
 ## Files
@@ -54,10 +54,10 @@ Generated 2026-11-07 18:01 UTC by `src/data/manifest.py`.
 
 | dataset                      | step                                       |   removed |   remaining |
 |:-----------------------------|:-------------------------------------------|----------:|------------:|
-| background (all Orchidaceae) | raw GBIF records in extent                 |         0 |       62233 |
-| background (all Orchidaceae) | missing coordinates                        |         0 |       62233 |
-| background (all Orchidaceae) | basisOfRecord fossil/living                |        72 |       62161 |
-| background (all Orchidaceae) | missing year                               |         0 |       62161 |
+| background (all Orchidaceae) | raw GBIF records in extent                 |         0 |       62435 |
+| background (all Orchidaceae) | missing coordinates                        |         0 |       62435 |
+| background (all Orchidaceae) | basisOfRecord fossil/living                |        72 |       62363 |
+| background (all Orchidaceae) | missing year                               |       202 |       62161 |
 | background (all Orchidaceae) | year < 1970                                |      1591 |       60570 |
 | background (all Orchidaceae) | (info) missing coordinate uncertainty kept |         0 |        8195 |
 | background (all Orchidaceae) | coordinate uncertainty > 5000 m            |     23967 |       36603 |
@@ -67,10 +67,10 @@ Generated 2026-11-07 18:01 UTC by `src/data/manifest.py`.
 | background (all Orchidaceae) | capitals (<10 km)                          |       549 |       35689 |
 | background (all Orchidaceae) | GBIF headquarters                          |         0 |       35689 |
 | background (all Orchidaceae) | sea / no climate data                      |        96 |       35593 |
-| salep genera (species level) | raw GBIF records in extent                 |         0 |       54249 |
-| salep genera (species level) | missing coordinates                        |         0 |       54249 |
-| salep genera (species level) | basisOfRecord fossil/living                |         1 |       54248 |
-| salep genera (species level) | missing year                               |         0 |       54248 |
+| salep genera (species level) | raw GBIF records in extent                 |         0 |       54391 |
+| salep genera (species level) | missing coordinates                        |         0 |       54391 |
+| salep genera (species level) | basisOfRecord fossil/living                |         1 |       54390 |
+| salep genera (species level) | missing year                               |       142 |       54248 |
 | salep genera (species level) | year < 1970                                |      1288 |       52960 |
 | salep genera (species level) | (info) missing coordinate uncertainty kept |         0 |        6549 |
 | salep genera (species level) | coordinate uncertainty > 5000 m            |     21754 |       31206 |

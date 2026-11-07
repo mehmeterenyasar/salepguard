@@ -6,7 +6,7 @@ processing steps and the GBIF download DOI are recorded automatically in
 
 | Data | Provider | Version / date | Licence | Citation | Used for |
 |---|---|---|---|---|---|
-| Orchidaceae occurrences | GBIF.org | retrieved 2026-11-07 (see manifest) | per-record CC0 / CC BY / CC BY-NC | GBIF.org (2026) GBIF Occurrence Download, DOI in manifest | presences (salep genera) and target-group background (all orchids) |
+| Orchidaceae occurrences | GBIF.org | download 0005388-261104105008071, 2026-11-07 | per-record CC0 / CC BY / CC BY-NC | GBIF.org (7 November 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.mfzrky | presences (salep genera) and target-group background (all orchids) |
 | Bioclimatic variables + elevation | WorldClim 2.1, 2.5 arc-min | 1970–2000 normals | free for academic / non-commercial use; **redistribution not allowed without permission** | Fick, S.E. & Hijmans, R.J. (2017) WorldClim 2: new 1-km spatial resolution climate surfaces for global land areas. *Int. J. Climatol.* 37: 4302–4315. doi:10.1002/joc.5086 | model covariates |
 | Future bioclim (CMIP6) | WorldClim 2.1 downscaled CMIP6, 2.5 arc-min | 2041–2060, SSP2-4.5 & SSP5-8.5; GCMs MPI-ESM1-2-HR, IPSL-CM6A-LR, MIROC6 | as WorldClim | as WorldClim + CMIP6 modelling groups (Eyring et al. 2016, *Geosci. Model Dev.* 9: 1937–1958, doi:10.5194/gmd-9-1937-2016) | climate-change projections |
 | Population density | WorldPop | 2020, 1 km, UN-adjusted, Turkey | CC BY 4.0 | WorldPop & CIESIN (2018) Global High Resolution Population Denominators Project. doi:10.5258/SOTON/WP00674 | harvest-pressure proxy |

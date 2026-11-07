@@ -59,7 +59,7 @@ uncertainty.
 
 | Data | Provider | Version | Licence | DOI / citation |
 |---|---|---|---|---|
-| Orchidaceae occurrences | GBIF.org | retrieved 2026-11-07 | per record CC0 / CC BY / CC BY-NC | TODO: GBIF download DOI (current data from search API, see manifest) |
+| Orchidaceae occurrences | GBIF.org | download 0005388-261104105008071, 2026-11-07 | per record CC0 / CC BY / CC BY-NC | GBIF.org (7 November 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.mfzrky |
 | Bioclim + elevation | WorldClim 2.1, 2.5′ | 1970–2000 | academic / non-commercial; no redistribution | Fick & Hijmans 2017, doi:10.1002/joc.5086 |
 | Future bioclim | WorldClim CMIP6 (MPI-ESM1-2-HR, IPSL-CM6A-LR, MIROC6) | SSP2-4.5, SSP5-8.5, 2041–2060 | as WorldClim | — |
 | Population density | WorldPop, 1 km UN-adj. | 2020 | CC BY 4.0 | doi:10.5258/SOTON/WP00674 |
@@ -74,7 +74,7 @@ You can find full details in [`docs/data_sources.md`](docs/data_sources.md) and 
 
 - **Grid:** WorldClim 2.5′ (≈4.6 km), EPSG:4326. Training extent is lon 19–45°, lat 34–43° (Eastern
   Mediterranean). Results are reported for Turkey only.
-- **Occurrences:** one GBIF query for all Orchidaceae (62,233 records). Cleaning removes fossil and living
+- **Occurrences:** one GBIF query for all Orchidaceae (62,435 records). Cleaning removes fossil and living
   specimens, records before 1970, coordinate uncertainty above 5 km, centroids, capitals, sea and
   duplicates. This leaves **24,557 salep-genus records of 108 species**. The **20 species** with ≥ 50 cells
   in the extent and ≥ 15 cells in Turkey are modelled. All-orchid records form a target-group background
@@ -87,13 +87,13 @@ You can find full details in [`docs/data_sources.md`](docs/data_sources.md) and 
 - **Index, uncertainty, sensitivity, climate change, province ranking, protection gap:** see
   [`docs/methods.md`](docs/methods.md).
 
-## Results (current: baseline model, OSM protected areas)
+## Results (current: baseline model, WDPA + OSM protected areas)
 
 | | |
 |---|---|
 | Species modelled | 20 (6 genera: *Anacamptis, Ophrys, Orchis, Neotinea, Himantoglossum, Serapias*) |
 | Baseline CV performance (mean of 20 species) | AUC 0.79 (0.64–0.91), TSS 0.49, Boyce 0.85 |
-| Share of Turkey protected (OSM layer) | 4.4 % |
+| Share of Turkey protected (WDPA + OSM layer) | 4.4 % |
 | Share of salep-orchid suitable area protected | **4.4 %**, no better than a random placement of protected areas |
 | Median species: suitable area protected | 6.6 % |
 | Top-5 provinces by mean priority | İstanbul, İzmir, Yalova, Aydın, Hatay |
@@ -132,7 +132,7 @@ These are the main ones. The full list is in [`docs/limitations.md`](docs/limita
   therefore biased towards the better-sampled west and south coasts.
 - **Pressure is a proxy.** Population and accessibility measure potential access, not observed harvest.
   Urban cores (e.g. İstanbul) score high on pressure, while real collection happens in rural areas.
-- **OSM protected areas** are incomplete. Legal protection is also not the same as effective protection.
+- **Protected areas:** the public WDPA release has only 17 Turkish sites, so the layer relies mostly on OpenStreetMap, which is incomplete. Legal protection is also not the same as effective protection.
 - Salep use is attributed at **genus level**.
 - Climate projections hold pressure and protection constant.
 

@@ -152,7 +152,9 @@ def main() -> None:
 
     # target-group background: every Orchidaceae record, same cleaning
     bg = clean(raw.copy(), report, "background (all Orchidaceae)")
-    bg = bg.drop_duplicates(["decimalLongitude", "decimalLatitude", "year"])
+    bg = bg.sort_values("gbifID", key=lambda s: pd.to_numeric(s, errors="coerce")).drop_duplicates(
+        ["decimalLongitude", "decimalLatitude", "year"]
+    )
     bg[["decimalLongitude", "decimalLatitude", "year", "countryCode"]].to_csv(
         PROCESSED / "background_targetgroup.csv", index=False
     )
@@ -168,7 +170,9 @@ def main() -> None:
     )
     occ = clean(salep, report, "salep genera (species level)")
     n0 = len(occ)
-    occ = occ.drop_duplicates(["species", "decimalLongitude", "decimalLatitude"])
+    occ = occ.sort_values("gbifID", key=lambda s: pd.to_numeric(s, errors="coerce")).drop_duplicates(
+        ["species", "decimalLongitude", "decimalLatitude"]
+    )
     report.append(
         {
             "dataset": "salep genera (species level)",
