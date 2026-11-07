@@ -11,6 +11,11 @@ Nothing here is clinical, legal or definitive information.
 - **Sparse, biased Turkish records.** GBIF holds far fewer orchid records for Turkey than for Greece or
   Cyprus. Many Turkish orchid surveys (herbaria, national flora projects) are not digitised in GBIF. The
   training extent and target-group background reduce, but do not remove, this bias.
+- **Obscured coordinates.** About 65 % of raw Turkish salep-genus records (2,135 of 3,301) carry
+  ~28 km coordinate uncertainty, mostly because iNaturalist deliberately obscures sensitive orchid
+  locations. They are unusable on a 4.6 km grid and were removed (> 5 km rule). As a result eastern
+  Anatolia and *Dactylorhiza* (a key salep genus) are badly under-represented and no *Dactylorhiza*
+  species passed the selection rule; hotspots are biased towards the west and south coasts.
 - **Taxonomy.** Names follow the GBIF backbone; orchid taxonomy (e.g. *Ophrys*, *Dactylorhiza*) is
   contested, and lumping/splitting changes species counts. Subspecies are merged.
 - **Salep-use attribution** is at genus level (Sezik 2002; Kasparek & Grimm 1999). Not every species of
@@ -27,6 +32,8 @@ Nothing here is clinical, legal or definitive information.
 - Population density and travel time are **proxies** of potential access, not observations of
   harvesting. Remote mountain meadows used by specialised collectors may be underrated; urban areas with
   no orchid habitat are down-weighted only through suitability.
+- Population density rewards **urban cores** (İstanbul, İzmir rank high) where little orchid habitat or
+  collection remains; a rural-access proxy would be more realistic (future work).
 - The 50/50 weights are an assumption (tested with sensitivity scenarios).
 - Market demand, land-use change, grazing and tourism are not included.
 - Literature-known collection regions are used only as a qualitative sanity check, not validation.

@@ -158,7 +158,9 @@ def main() -> None:
     )
 
     salep = raw[
-        raw["genus"].isin(taxa["salep_genera"]) & raw["species"].notna() & raw["species"].str.strip().str.contains(" ")  # species-level names only
+        raw["genus"].isin(taxa["salep_genera"])
+        & raw["species"].notna()
+        & raw["species"].str.strip().str.contains(" ")  # species-level names only
     ].copy()
     salep["species_slug"] = salep["species"].map(slugify)
     salep[[c for c in CLEAN_COLS if c in salep] + ["genus", "taxonRank", "issue"]].to_csv(

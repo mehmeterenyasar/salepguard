@@ -19,6 +19,7 @@ STEPS = [
     ("baseline", ["-m", "src.models.baseline"]),
     ("validate", ["scripts/validate_outputs.py"]),
     ("risk", ["-m", "src.risk.priority"]),
+    ("compare", ["-m", "src.models.compare"]),
     ("web", ["-m", "src.viz.web_layers"]),
     ("figures", ["-m", "src.viz.figures"]),
 ]

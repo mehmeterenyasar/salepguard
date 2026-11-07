@@ -4,7 +4,7 @@ PY ?= python
 all:            ## full pipeline
 	$(PY) run_all.py
 data:
-	$(PY) run_all.py --from boundaries --only manifest || true
+	for s in boundaries worldclim pressure protected gbif clean manifest; do $(PY) run_all.py --only $$s || exit 1; done
 model:
 	$(PY) run_all.py --only baseline
 risk:
