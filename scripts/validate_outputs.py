@@ -20,8 +20,19 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.common import OUTPUTS, PROCESSED, config, training_grid  # noqa: E402
 
-METRIC_COLS = ["species_slug", "n_train_cells", "auc_mean", "auc_sd", "tss_mean", "tss_sd", "cbi_mean",
-               "threshold", "threshold_method", "top_variables", "cv_method"]
+METRIC_COLS = [
+    "species_slug",
+    "n_train_cells",
+    "auc_mean",
+    "auc_sd",
+    "tss_mean",
+    "tss_sd",
+    "cbi_mean",
+    "threshold",
+    "threshold_method",
+    "top_variables",
+    "cv_method",
+]
 PER_SPECIES = {"suitability_mean": (0, 1), "suitability_sd": (0, 1), "binary": (0, 1)}
 
 

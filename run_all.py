@@ -1,7 +1,7 @@
 """Run the full SalepGuard pipeline end to end (cached steps are skipped quickly).
 
-    python run_all.py            # everything
-    python run_all.py --from risk
+python run_all.py            # everything
+python run_all.py --from risk
 """
 
 import argparse
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     ap.add_argument("--only", default=None, choices=[s for s, _ in STEPS])
     a = ap.parse_args()
     names = [s for s, _ in STEPS]
-    todo = STEPS[names.index(a.start):] if not a.only else [STEPS[names.index(a.only)]]
+    todo = STEPS[names.index(a.start) :] if not a.only else [STEPS[names.index(a.only)]]
     for name, args in todo:
         print(f"\n=== {name} ===", flush=True)
         subprocess.run([sys.executable, *args], check=True)

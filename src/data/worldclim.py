@@ -9,8 +9,17 @@ import numpy as np
 import rasterio
 from rasterio.windows import from_bounds
 
-from src.common import BIO_VARS, COVARIATES, PROCESSED, RAW, config, download, get_logger, \
-    training_grid, write_raster
+from src.common import (
+    BIO_VARS,
+    COVARIATES,
+    PROCESSED,
+    RAW,
+    config,
+    download,
+    get_logger,
+    training_grid,
+    write_raster,
+)
 
 log = get_logger("worldclim")
 BASE = "https://geodata.ucdavis.edu/climate/worldclim/2_1/base"
@@ -69,8 +78,9 @@ def main() -> None:
     current()
     future()
     b1 = crop(str(COVARIATES / "bio01.tif"))
-    log.info("bio01 range %.1f..%.1f, NaN share %.2f", np.nanmin(b1), np.nanmax(b1),
-             float(np.isnan(b1).mean()))
+    log.info(
+        "bio01 range %.1f..%.1f, NaN share %.2f", np.nanmin(b1), np.nanmax(b1), float(np.isnan(b1).mean())
+    )
 
 
 if __name__ == "__main__":

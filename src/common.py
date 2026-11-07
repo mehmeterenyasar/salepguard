@@ -106,8 +106,9 @@ def training_grid() -> Grid:
     return Grid(e["lon_min"], e["lon_max"], e["lat_min"], e["lat_max"], g["resolution_deg"])
 
 
-def write_raster(path: Path, array: np.ndarray, grid: Grid | None = None, nodata=np.nan,
-                 dtype: str = "float32") -> Path:
+def write_raster(
+    path: Path, array: np.ndarray, grid: Grid | None = None, nodata=np.nan, dtype: str = "float32"
+) -> Path:
     import rasterio
 
     grid = grid or training_grid()
@@ -116,9 +117,17 @@ def write_raster(path: Path, array: np.ndarray, grid: Grid | None = None, nodata
     if arr.ndim == 2:
         arr = arr[np.newaxis]
     assert arr.shape[1:] == grid.shape, f"{path.name}: shape {arr.shape} != grid {grid.shape}"
-    profile = dict(driver="GTiff", height=grid.height, width=grid.width, count=arr.shape[0],
-                   dtype=dtype, crs=config()["grid"]["crs"], transform=grid.transform,
-                   compress="lzw", nodata=nodata)
+    profile = dict(
+        driver="GTiff",
+        height=grid.height,
+        width=grid.width,
+        count=arr.shape[0],
+        dtype=dtype,
+        crs=config()["grid"]["crs"],
+        transform=grid.transform,
+        compress="lzw",
+        nodata=nodata,
+    )
     with rasterio.open(path, "w", **profile) as dst:
         dst.write(arr.astype(dtype))
     return path
@@ -146,8 +155,9 @@ def download(url: str, dest: Path, logger: logging.Logger | None = None, timeout
     if logger:
         logger.info("downloading %s", url)
     tmp = dest.with_suffix(dest.suffix + ".part")
-    with requests.get(url, stream=True, timeout=timeout,
-                      headers={"User-Agent": "SalepGuard/0.1 (research hackathon)"}) as r:
+    with requests.get(
+        url, stream=True, timeout=timeout, headers={"User-Agent": "SalepGuard/0.1 (research hackathon)"}
+    ) as r:
         r.raise_for_status()
         with open(tmp, "wb") as fh:
             for chunk in r.iter_content(chunk_size=1 << 20):

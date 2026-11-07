@@ -53,18 +53,28 @@ def main() -> None:
     write_vector(adm1, PROCESSED / "admin1_turkey.gpkg")
     write_vector(adm0[["shapeName", "shapeISO", "geometry"]], PROCESSED / "admin0_turkey.gpkg")
 
-    mask = rasterize(((g, 1) for g in adm0.geometry), out_shape=grid.shape,
-                     transform=grid.transform, fill=0, dtype="uint8")
+    mask = rasterize(
+        ((g, 1) for g in adm0.geometry), out_shape=grid.shape, transform=grid.transform, fill=0, dtype="uint8"
+    )
     write_raster(PROCESSED / "turkey_mask.tif", mask, grid, nodata=255, dtype="uint8")
 
     # Province id raster (1..81) for zonal statistics; 0 = outside Turkey
-    prov = rasterize(((g, i + 1) for i, g in enumerate(adm1.geometry)), out_shape=grid.shape,
-                     transform=grid.transform, fill=0, dtype="uint8")
+    prov = rasterize(
+        ((g, i + 1) for i, g in enumerate(adm1.geometry)),
+        out_shape=grid.shape,
+        transform=grid.transform,
+        fill=0,
+        dtype="uint8",
+    )
     write_raster(PROCESSED / "province_id.tif", prov, grid, nodata=255, dtype="uint8")
 
     fetch_natural_earth()
-    log.info("provinces=%d, Turkey cells=%d, province cells=%d", len(adm1), int(mask.sum()),
-             int(np.count_nonzero(prov)))
+    log.info(
+        "provinces=%d, Turkey cells=%d, province cells=%d",
+        len(adm1),
+        int(mask.sum()),
+        int(np.count_nonzero(prov)),
+    )
 
 
 if __name__ == "__main__":

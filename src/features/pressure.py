@@ -16,15 +16,28 @@ import rasterio
 from rasterio.enums import Resampling
 from rasterio.warp import reproject
 
-from src.common import PROCESSED, RAW, config, download, get_logger, minmax, training_grid, \
-    turkey_mask, write_raster
+from src.common import (
+    PROCESSED,
+    RAW,
+    config,
+    download,
+    get_logger,
+    minmax,
+    training_grid,
+    turkey_mask,
+    write_raster,
+)
 
 log = get_logger("pressure")
-WORLDPOP_URL = ("https://data.worldpop.org/GIS/Population_Density/Global_2000_2020_1km_UNadj/"
-                "2020/TUR/tur_pd_2020_1km_UNadj.tif")
-MAP_WCS = ("https://data.malariaatlas.org/geoserver/Accessibility/wcs?service=WCS&version=2.0.1"
-           "&request=GetCoverage&coverageId=Accessibility__201501_Global_Travel_Time_to_Cities"
-           "&subset=Long(25,45.5)&subset=Lat(35,42.5)&format=image/geotiff")
+WORLDPOP_URL = (
+    "https://data.worldpop.org/GIS/Population_Density/Global_2000_2020_1km_UNadj/"
+    "2020/TUR/tur_pd_2020_1km_UNadj.tif"
+)
+MAP_WCS = (
+    "https://data.malariaatlas.org/geoserver/Accessibility/wcs?service=WCS&version=2.0.1"
+    "&request=GetCoverage&coverageId=Accessibility__201501_Global_Travel_Time_to_Cities"
+    "&subset=Long(25,45.5)&subset=Lat(35,42.5)&format=image/geotiff"
+)
 
 
 def to_grid(path, resampling=Resampling.average) -> np.ndarray:
@@ -36,9 +49,17 @@ def to_grid(path, resampling=Resampling.average) -> np.ndarray:
         if nd is not None:
             srcarr[srcarr == nd] = np.nan
         srcarr[srcarr < 0] = np.nan
-        reproject(srcarr, dst, src_transform=src.transform, src_crs=src.crs, src_nodata=np.nan,
-                  dst_transform=grid.transform, dst_crs=config()["grid"]["crs"], dst_nodata=np.nan,
-                  resampling=resampling)
+        reproject(
+            srcarr,
+            dst,
+            src_transform=src.transform,
+            src_crs=src.crs,
+            src_nodata=np.nan,
+            dst_transform=grid.transform,
+            dst_crs=config()["grid"]["crs"],
+            dst_nodata=np.nan,
+            resampling=resampling,
+        )
     return dst
 
 
@@ -70,12 +91,18 @@ def main() -> None:
     write_raster(PROCESSED / "pressure_index.tif", idx)
     for name, sw in config()["pressure"]["sensitivity_scenarios"].items():
         s = compose(pop_n, acc_n, sw["population"], sw["accessibility"])
-        write_raster(PROCESSED / "pressure_scenarios" / f"pressure_index_{name}.tif",
-                     np.where(mask, minmax(s, mask), np.nan))
+        write_raster(
+            PROCESSED / "pressure_scenarios" / f"pressure_index_{name}.tif",
+            np.where(mask, minmax(s, mask), np.nan),
+        )
 
     r = np.corrcoef(pop_n[mask], acc_n[mask])[0, 1]
-    log.info("pressure: mean=%.3f, median travel time=%.0f min, r(pop,acc)=%.2f",
-             float(np.nanmean(idx)), float(np.nanmedian(tt[mask])), r)
+    log.info(
+        "pressure: mean=%.3f, median travel time=%.0f min, r(pop,acc)=%.2f",
+        float(np.nanmean(idx)),
+        float(np.nanmedian(tt[mask])),
+        r,
+    )
 
 
 if __name__ == "__main__":

@@ -14,7 +14,6 @@ import json
 import zipfile
 
 import geopandas as gpd
-import numpy as np
 import pandas as pd
 import requests
 from rasterio.features import rasterize
@@ -73,8 +72,12 @@ def load_wdpa() -> gpd.GeoDataFrame | None:
 def load_osm() -> gpd.GeoDataFrame:
     if not OSM_CACHE.exists():
         log.info("querying Overpass (can take a few minutes)")
-        r = requests.post(OVERPASS, data={"data": QUERY}, timeout=900,
-                          headers={"User-Agent": "SalepGuard/0.1 (research hackathon)"})
+        r = requests.post(
+            OVERPASS,
+            data={"data": QUERY},
+            timeout=900,
+            headers={"User-Agent": "SalepGuard/0.1 (research hackathon)"},
+        )
         r.raise_for_status()
         OSM_CACHE.parent.mkdir(parents=True, exist_ok=True)
         OSM_CACHE.write_text(r.text, encoding="utf-8")
@@ -88,18 +91,27 @@ def load_osm() -> gpd.GeoDataFrame:
             if coords[0] == coords[-1]:
                 geom = Polygon(coords)
         elif el["type"] == "relation":
-            outers = [LineString([(p["lon"], p["lat"]) for p in m["geometry"]])
-                      for m in el.get("members", [])
-                      if m.get("type") == "way" and m.get("role", "outer") in ("outer", "")
-                      and len(m.get("geometry", [])) >= 2]
+            outers = [
+                LineString([(p["lon"], p["lat"]) for p in m["geometry"]])
+                for m in el.get("members", [])
+                if m.get("type") == "way"
+                and m.get("role", "outer") in ("outer", "")
+                and len(m.get("geometry", [])) >= 2
+            ]
             if outers:
                 polys = list(polygonize(linemerge(outers)))
                 if polys:
                     geom = unary_union(polys)
         if geom is not None and geom.is_valid and not geom.is_empty:
-            rows.append({"osm_id": f"{el['type']}/{el['id']}", "name": tags.get("name:en", tags.get("name")),
-                         "designation": tags.get("protection_title", tags.get("boundary", tags.get("leisure"))),
-                         "protect_class": tags.get("protect_class"), "geometry": geom})
+            rows.append(
+                {
+                    "osm_id": f"{el['type']}/{el['id']}",
+                    "name": tags.get("name:en", tags.get("name")),
+                    "designation": tags.get("protection_title", tags.get("boundary", tags.get("leisure"))),
+                    "protect_class": tags.get("protect_class"),
+                    "geometry": geom,
+                }
+            )
     gdf = gpd.GeoDataFrame(rows, geometry="geometry", crs="EPSG:4326")
     # protect_class 1-6 = nature protection; drop cultural/resource classes (>= 7, e.g. 21-29)
     pc = pd.to_numeric(gdf["protect_class"], errors="coerce")
@@ -116,12 +128,22 @@ def main() -> None:
         gdf = load_osm()
     gdf = gdf[gdf.is_valid].reset_index(drop=True)
     write_vector(gdf, PROCESSED / "protected_areas.gpkg")
-    arr = rasterize(((g, 1) for g in gdf.geometry), out_shape=grid.shape, transform=grid.transform,
-                    fill=0, dtype="uint8", all_touched=False)
+    arr = rasterize(
+        ((g, 1) for g in gdf.geometry),
+        out_shape=grid.shape,
+        transform=grid.transform,
+        fill=0,
+        dtype="uint8",
+        all_touched=False,
+    )
     write_raster(PROCESSED / "protected_areas.tif", arr, grid, nodata=255, dtype="uint8")
     m = turkey_mask()
-    log.info("source=%s polygons=%d, protected share of Turkey cells=%.2f%%", gdf["source"].iloc[0],
-             len(gdf), 100 * float(arr[m].mean()))
+    log.info(
+        "source=%s polygons=%d, protected share of Turkey cells=%.2f%%",
+        gdf["source"].iloc[0],
+        len(gdf),
+        100 * float(arr[m].mean()),
+    )
 
 
 if __name__ == "__main__":

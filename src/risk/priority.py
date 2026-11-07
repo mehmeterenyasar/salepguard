@@ -16,8 +16,16 @@ import json
 import numpy as np
 import pandas as pd
 
-from src.common import OUTPUTS, PROCESSED, config, get_logger, read_raster, read_vector, \
-    training_grid, write_raster
+from src.common import (
+    OUTPUTS,
+    PROCESSED,
+    config,
+    get_logger,
+    read_raster,
+    read_vector,
+    training_grid,
+    write_raster,
+)
 
 log = get_logger("risk")
 OUT = OUTPUTS / "risk"
@@ -39,19 +47,22 @@ def cell_area_km2() -> np.ndarray:
 
 # ---------- pure functions (unit-tested) ----------
 
-def priority_index(suit: np.ndarray, pressure: np.ndarray, protected: np.ndarray,
-                   weights: np.ndarray | None = None) -> np.ndarray:
+
+def priority_index(
+    suit: np.ndarray, pressure: np.ndarray, protected: np.ndarray, weights: np.ndarray | None = None
+) -> np.ndarray:
     """suit: (n_species, H, W). Returns raw (un-normalised) priority."""
     w = np.ones(suit.shape[0]) if weights is None else np.asarray(weights, float)
     unprot = suit * (pressure * (1.0 - protected))[None]
     return np.tensordot(w, unprot, axes=1)
 
 
-def priority_sd(sd: np.ndarray, pressure: np.ndarray, protected: np.ndarray,
-                weights: np.ndarray | None = None) -> np.ndarray:
+def priority_sd(
+    sd: np.ndarray, pressure: np.ndarray, protected: np.ndarray, weights: np.ndarray | None = None
+) -> np.ndarray:
     w = np.ones(sd.shape[0]) if weights is None else np.asarray(weights, float)
     factor = (pressure * (1.0 - protected)) ** 2
-    return np.sqrt(np.tensordot(w ** 2, sd ** 2, axes=1) * factor)
+    return np.sqrt(np.tensordot(w**2, sd**2, axes=1) * factor)
 
 
 def top_mask(values: np.ndarray, mask: np.ndarray, fraction: float) -> np.ndarray:
@@ -67,6 +78,7 @@ def jaccard(a: np.ndarray, b: np.ndarray) -> float:
 
 # ---------- pipeline ----------
 
+
 def main() -> None:
     cfg = config()
     rcfg = cfg["risk"]
@@ -79,8 +91,11 @@ def main() -> None:
 
     sp_list = pd.read_csv(PROCESSED / "species_list.csv")
     metrics = pd.read_csv(mdir / "metrics.csv")
-    slugs = [s for s in sp_list.loc[sp_list["selected"], "species_slug"]
-             if (mdir / f"{s}_suitability_mean.tif").exists()]
+    slugs = [
+        s
+        for s in sp_list.loc[sp_list["selected"], "species_slug"]
+        if (mdir / f"{s}_suitability_mean.tif").exists()
+    ]
     names = dict(zip(sp_list["species_slug"], sp_list["species"]))
     thr = dict(zip(metrics["species_slug"], metrics["threshold"]))
     log.info("model source=%s, species=%d", source, len(slugs))
@@ -116,9 +131,10 @@ def main() -> None:
     # ---- sensitivity: pressure-weight scenarios and binary-vs-continuous suitability ----
     rows = []
     frac = rcfg["hotspot_top_fraction"]
-    ref = hot
     for name in cfg["pressure"]["sensitivity_scenarios"]:
-        p = np.nan_to_num(read_raster(PROCESSED / "pressure_scenarios" / f"pressure_index_{name}.tif"), nan=0.0)
+        p = np.nan_to_num(
+            read_raster(PROCESSED / "pressure_scenarios" / f"pressure_index_{name}.tif"), nan=0.0
+        )
         for variant, s_in in [("continuous suitability", suit), ("binary suitability", binary)]:
             pr = np.where(tr, priority_index(s_in, p, protected, weights), np.nan)
             pr = pr / np.nanmax(pr)
@@ -127,9 +143,15 @@ def main() -> None:
             for f in (0.025, frac, 0.10):
                 h = top_mask(pr, tr, f)
                 r = top_mask(prio, tr, f)
-                rows.append({"pressure_scenario": name, "suitability_input": variant,
-                             "top_fraction": f, "jaccard_vs_reference": round(jaccard(h, r), 3),
-                             "n_cells": int(h.sum())})
+                rows.append(
+                    {
+                        "pressure_scenario": name,
+                        "suitability_input": variant,
+                        "top_fraction": f,
+                        "jaccard_vs_reference": round(jaccard(h, r), 3),
+                        "n_cells": int(h.sum()),
+                    }
+                )
     sens = pd.DataFrame(rows)
     sens.to_csv(OUT / "sensitivity_jaccard.csv", index=False)
 
@@ -151,14 +173,26 @@ def main() -> None:
         for i, s in enumerate(slugs):
             now = float(area[tr & (binary[i] == 1)].sum())
             then = float(area[tr & fbin[i]].sum())
-            clim_rows.append({"species_slug": s, "species": names[s], "scenario": ssp,
-                              "suitable_km2_current": round(now), "suitable_km2_future": round(then),
-                              "change_pct": round(100 * (then - now) / now, 1) if now else np.nan,
-                              "future_suitable_protected_pct":
-                                  round(100 * float(area[tr & fbin[i] & (protected == 1)].sum()) / then, 1)
-                                  if then else np.nan})
-        fut_summary[ssp] = {"median_change_pct": float(np.nanmedian(
-            [r["change_pct"] for r in clim_rows if r["scenario"] == ssp]))}
+            clim_rows.append(
+                {
+                    "species_slug": s,
+                    "species": names[s],
+                    "scenario": ssp,
+                    "suitable_km2_current": round(now),
+                    "suitable_km2_future": round(then),
+                    "change_pct": round(100 * (then - now) / now, 1) if now else np.nan,
+                    "future_suitable_protected_pct": (
+                        round(100 * float(area[tr & fbin[i] & (protected == 1)].sum()) / then, 1)
+                        if then
+                        else np.nan
+                    ),
+                }
+            )
+        fut_summary[ssp] = {
+            "median_change_pct": float(
+                np.nanmedian([r["change_pct"] for r in clim_rows if r["scenario"] == ssp])
+            )
+        }
     if clim_rows:
         pd.DataFrame(clim_rows).to_csv(OUT / "climate_change_species.csv", index=False)
 
@@ -170,11 +204,21 @@ def main() -> None:
         a_suit = float(area[suit_cells].sum())
         a_prot = float(area[suit_cells & (protected == 1)].sum())
         m = metrics.set_index("species_slug").loc[s]
-        gap.append({"species_slug": s, "species": names[s], "genus": names[s].split()[0],
-                    "suitable_km2_turkey": round(a_suit), "protected_suitable_km2": round(a_prot),
-                    "protected_pct": round(100 * a_prot / a_suit, 2) if a_suit else np.nan,
-                    "mean_pressure_in_suitable": round(float(pressure[suit_cells].mean()), 3) if a_suit else np.nan,
-                    "auc_mean": m["auc_mean"], "tss_mean": m["tss_mean"]})
+        gap.append(
+            {
+                "species_slug": s,
+                "species": names[s],
+                "genus": names[s].split()[0],
+                "suitable_km2_turkey": round(a_suit),
+                "protected_suitable_km2": round(a_prot),
+                "protected_pct": round(100 * a_prot / a_suit, 2) if a_suit else np.nan,
+                "mean_pressure_in_suitable": (
+                    round(float(pressure[suit_cells].mean()), 3) if a_suit else np.nan
+                ),
+                "auc_mean": m["auc_mean"],
+                "tss_mean": m["tss_mean"],
+            }
+        )
     gap = pd.DataFrame(gap).sort_values("protected_pct")
     gap.to_csv(OUT / "protection_gap.csv", index=False)
     any_suit = tr & (richness >= 1)
@@ -192,32 +236,44 @@ def main() -> None:
         sp_score = unprot[:, cells].mean(1)
         top = np.argsort(sp_score)[::-1][:3]
         suit_here = cells & (richness >= 1)
-        prov_rows.append({
-            "province": row["province"], "shapeISO": row["shapeISO"],
-            "mean_priority": round(float(np.nanmean(prio[cells])), 4),
-            "max_priority": round(float(np.nanmax(prio[cells])), 4),
-            "n_hotspot_cells": int(hot[cells].sum()), "n_robust_hotspot_cells": int(robust[cells].sum()),
-            "hotspot_km2": round(float(area[cells & hot].sum())),
-            "mean_pressure": round(float(pressure[cells].mean()), 3),
-            "mean_richness": round(float(richness[cells].mean()), 2),
-            "suitable_area_protected_pct": round(100 * float(area[suit_here & (protected == 1)].sum()
-                                                             / area[suit_here].sum()), 2) if suit_here.any() else np.nan,
-            "top_species": "; ".join(names[slugs[j]] for j in top if sp_score[j] > 0),
-        })
+        prov_rows.append(
+            {
+                "province": row["province"],
+                "shapeISO": row["shapeISO"],
+                "mean_priority": round(float(np.nanmean(prio[cells])), 4),
+                "max_priority": round(float(np.nanmax(prio[cells])), 4),
+                "n_hotspot_cells": int(hot[cells].sum()),
+                "n_robust_hotspot_cells": int(robust[cells].sum()),
+                "hotspot_km2": round(float(area[cells & hot].sum())),
+                "mean_pressure": round(float(pressure[cells].mean()), 3),
+                "mean_richness": round(float(richness[cells].mean()), 2),
+                "suitable_area_protected_pct": (
+                    round(100 * float(area[suit_here & (protected == 1)].sum() / area[suit_here].sum()), 2)
+                    if suit_here.any()
+                    else np.nan
+                ),
+                "top_species": "; ".join(names[slugs[j]] for j in top if sp_score[j] > 0),
+            }
+        )
     prov = pd.DataFrame(prov_rows).sort_values("mean_priority", ascending=False)
     prov.insert(0, "rank", range(1, len(prov) + 1))
     prov.to_csv(OUT / "province_ranking.csv", index=False)
 
     summary = {
-        "model_source": source, "n_species": len(slugs),
+        "model_source": source,
+        "n_species": len(slugs),
         "n_clean_records": int(len(pd.read_csv(PROCESSED / "occurrences_clean.csv"))),
         "turkey_protected_pct": round(tr_prot_pct, 2),
         "suitable_area_protected_pct": round(overall_gap, 2),
         "median_species_protected_pct": round(float(gap["protected_pct"].median()), 2),
-        "top_province": prov.iloc[0]["province"], "top5_provinces": list(prov["province"].head(5)),
-        "n_hotspot_cells": int(hot.sum()), "n_robust_hotspot_cells": int(robust.sum()),
+        "top_province": prov.iloc[0]["province"],
+        "top5_provinces": list(prov["province"].head(5)),
+        "n_hotspot_cells": int(hot.sum()),
+        "n_robust_hotspot_cells": int(robust.sum()),
         "hotspot_km2": round(float(area[hot].sum())),
-        "sensitivity_min_jaccard_top5": float(sens[sens["top_fraction"] == frac]["jaccard_vs_reference"].min()),
+        "sensitivity_min_jaccard_top5": float(
+            sens[sens["top_fraction"] == frac]["jaccard_vs_reference"].min()
+        ),
         "future": fut_summary,
     }
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")

@@ -24,14 +24,42 @@ from concurrent.futures import ProcessPoolExecutor
 import numpy as np
 import pandas as pd
 
-from src.common import COVARIATE_NAMES, COVARIATES, OUTPUTS, PROCESSED, config, get_logger, \
-    read_raster, training_grid, write_raster
+from src.common import (
+    COVARIATE_NAMES,
+    COVARIATES,
+    OUTPUTS,
+    PROCESSED,
+    config,
+    get_logger,
+    read_raster,
+    training_grid,
+    write_raster,
+)
 
 log = get_logger("baseline")
 OUT = OUTPUTS / "baseline"
-PRIORITY_ORDER = ["bio01", "bio12", "bio04", "bio15", "bio05", "bio06", "bio10", "bio11", "bio16",
-                  "bio17", "bio18", "bio19", "bio02", "bio03", "bio07", "bio08", "bio09", "bio13",
-                  "bio14", "elevation"]
+PRIORITY_ORDER = [
+    "bio01",
+    "bio12",
+    "bio04",
+    "bio15",
+    "bio05",
+    "bio06",
+    "bio10",
+    "bio11",
+    "bio16",
+    "bio17",
+    "bio18",
+    "bio19",
+    "bio02",
+    "bio03",
+    "bio07",
+    "bio08",
+    "bio09",
+    "bio13",
+    "bio14",
+    "elevation",
+]
 
 
 def load_stack(folder) -> np.ndarray:
@@ -84,8 +112,13 @@ def boyce(pres: np.ndarray, bg: np.ndarray, n_win: int = 101, width: float = 0.1
 def make_model():
     import elapid as ela
 
-    return ela.MaxentModel(feature_types=["linear", "quadratic", "hinge"], beta_multiplier=1.5,
-                           transform="cloglog", n_hinge_features=10, use_lambdas="best")
+    return ela.MaxentModel(
+        feature_types=["linear", "quadratic", "hinge"],
+        beta_multiplier=1.5,
+        transform="cloglog",
+        n_hinge_features=10,
+        use_lambdas="best",
+    )
 
 
 def fit_species(args) -> dict:
@@ -124,10 +157,18 @@ def fit_species(args) -> dict:
             futs[k].append(m.predict(fx).astype("float32"))
     preds = np.array(preds)
     return {
-        "slug": slug, "mean": preds.mean(0), "sd": preds.std(0), "boot_binary": np.array(bins),
-        "future": {k: np.mean(v, axis=0) for k, v in futs.items()}, "threshold": thr,
-        "auc_mean": np.mean(aucs), "auc_sd": np.std(aucs), "tss_mean": np.mean(tsss),
-        "tss_sd": np.std(tsss), "cbi_mean": np.nanmean(cbis), "n_train_cells": len(pres_X),
+        "slug": slug,
+        "mean": preds.mean(0),
+        "sd": preds.std(0),
+        "boot_binary": np.array(bins),
+        "future": {k: np.mean(v, axis=0) for k, v in futs.items()},
+        "threshold": thr,
+        "auc_mean": np.mean(aucs),
+        "auc_sd": np.std(aucs),
+        "tss_mean": np.mean(tsss),
+        "tss_sd": np.std(tsss),
+        "cbi_mean": np.nanmean(cbis),
+        "n_train_cells": len(pres_X),
         "seconds": time.time() - t0,
     }
 
@@ -156,8 +197,12 @@ def main(only: list[str] | None = None) -> None:
     bg_df = pd.DataFrame(flat[bg_cells], columns=COVARIATE_NAMES)
     vars_ = select_variables(bg_df, cfg["max_abs_correlation"])
     vi = [COVARIATE_NAMES.index(v) for v in vars_]
-    log.info("background cells=%d; selected variables (|r|<=%.1f): %s", len(bg_cells),
-             cfg["max_abs_correlation"], ", ".join(vars_))
+    log.info(
+        "background cells=%d; selected variables (|r|<=%.1f): %s",
+        len(bg_cells),
+        cfg["max_abs_correlation"],
+        ", ".join(vars_),
+    )
 
     pred_cells = np.where(cell_ok)[0]
     grid_X = flat[pred_cells][:, vi]
@@ -176,8 +221,18 @@ def main(only: list[str] | None = None) -> None:
     jobs = []
     for i, (slug,) in enumerate(species[["species_slug"]].itertuples(index=False)):
         pres = cells_of(occ[occ["species_slug"] == slug])
-        jobs.append((slug, flat[pres][:, vi], flat[bg_cells][:, vi], grid_X, fut_X,
-                     cfg["n_bootstrap"], cfg["cv_folds"], seed + i))
+        jobs.append(
+            (
+                slug,
+                flat[pres][:, vi],
+                flat[bg_cells][:, vi],
+                grid_X,
+                fut_X,
+                cfg["n_bootstrap"],
+                cfg["cv_folds"],
+                seed + i,
+            )
+        )
     log.info("fitting %d species (%d bootstrap each)", len(jobs), cfg["n_bootstrap"])
 
     def to_grid(v, fill=np.nan, dtype="float32"):
@@ -198,14 +253,30 @@ def main(only: list[str] | None = None) -> None:
             bb = res["boot_binary"].astype("uint16")
             rich_boot = bb if rich_boot is None else rich_boot + bb
             rich_mean = binary if rich_mean is None else rich_mean + binary
-            rows.append({"species_slug": s, "n_train_cells": res["n_train_cells"],
-                         "auc_mean": round(res["auc_mean"], 4), "auc_sd": round(res["auc_sd"], 4),
-                         "tss_mean": round(res["tss_mean"], 4), "tss_sd": round(res["tss_sd"], 4),
-                         "cbi_mean": round(res["cbi_mean"], 4), "threshold": round(res["threshold"], 4),
-                         "threshold_method": "max_sens_spec (pooled 5-fold CV)",
-                         "top_variables": ";".join(vars_), "cv_method": "random 5-fold"})
-            log.info("%-32s cells=%4d AUC=%.3f TSS=%.3f CBI=%.2f (%.0fs)", s, res["n_train_cells"],
-                     res["auc_mean"], res["tss_mean"], res["cbi_mean"], res["seconds"])
+            rows.append(
+                {
+                    "species_slug": s,
+                    "n_train_cells": res["n_train_cells"],
+                    "auc_mean": round(res["auc_mean"], 4),
+                    "auc_sd": round(res["auc_sd"], 4),
+                    "tss_mean": round(res["tss_mean"], 4),
+                    "tss_sd": round(res["tss_sd"], 4),
+                    "cbi_mean": round(res["cbi_mean"], 4),
+                    "threshold": round(res["threshold"], 4),
+                    "threshold_method": "max_sens_spec (pooled 5-fold CV)",
+                    "top_variables": ";".join(vars_),
+                    "cv_method": "random 5-fold",
+                }
+            )
+            log.info(
+                "%-32s cells=%4d AUC=%.3f TSS=%.3f CBI=%.2f (%.0fs)",
+                s,
+                res["n_train_cells"],
+                res["auc_mean"],
+                res["tss_mean"],
+                res["cbi_mean"],
+                res["seconds"],
+            )
     if only is None and rows:
         write_raster(OUT / "richness_mean.tif", to_grid(rich_mean))
         write_raster(OUT / "richness_sd.tif", to_grid(rich_boot.std(0).astype("float32")))

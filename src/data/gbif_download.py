@@ -31,11 +31,32 @@ STATE = GBIF_DIR / "download_state.json"
 RAW_CSV = GBIF_DIR / "orchidaceae_extent.csv"
 
 KEEP_COLS = [
-    "gbifID", "datasetKey", "occurrenceStatus", "basisOfRecord", "family", "genus", "species",
-    "infraspecificEpithet", "taxonRank", "scientificName", "verbatimScientificName", "taxonKey",
-    "speciesKey", "countryCode", "stateProvince", "locality", "decimalLatitude",
-    "decimalLongitude", "coordinateUncertaintyInMeters", "coordinatePrecision", "year", "month",
-    "day", "eventDate", "institutionCode", "issue",
+    "gbifID",
+    "datasetKey",
+    "occurrenceStatus",
+    "basisOfRecord",
+    "family",
+    "genus",
+    "species",
+    "infraspecificEpithet",
+    "taxonRank",
+    "scientificName",
+    "verbatimScientificName",
+    "taxonKey",
+    "speciesKey",
+    "countryCode",
+    "stateProvince",
+    "locality",
+    "decimalLatitude",
+    "decimalLongitude",
+    "coordinateUncertaintyInMeters",
+    "coordinatePrecision",
+    "year",
+    "month",
+    "day",
+    "eventDate",
+    "institutionCode",
+    "issue",
 ]
 
 
@@ -63,8 +84,10 @@ def _creds() -> tuple[str, str, str]:
     load_dotenv()
     user, pwd, email = (os.environ.get(k) for k in ("GBIF_USER", "GBIF_PWD", "GBIF_EMAIL"))
     if not (user and pwd and email):
-        sys.exit("GBIF_USER / GBIF_PWD / GBIF_EMAIL not set (env or .env). "
-                 "Create a free account at https://www.gbif.org/user/profile or run `search`.")
+        sys.exit(
+            "GBIF_USER / GBIF_PWD / GBIF_EMAIL not set (env or .env). "
+            "Create a free account at https://www.gbif.org/user/profile or run `search`."
+        )
     return user, pwd, email
 
 
@@ -74,15 +97,24 @@ def request_download() -> str:
         log.info("download already requested: %s", key)
         return key
     user, pwd, email = _creds()
-    body = {"creator": user, "notificationAddresses": [email], "sendNotification": True,
-            "format": config()["gbif"]["format"], "predicate": predicate()}
+    body = {
+        "creator": user,
+        "notificationAddresses": [email],
+        "sendNotification": True,
+        "format": config()["gbif"]["format"],
+        "predicate": predicate(),
+    }
     r = requests.post(f"{API}/occurrence/download/request", json=body, auth=(user, pwd), timeout=60)
     if r.status_code >= 400:
         sys.exit(f"GBIF request failed ({r.status_code}): {r.text}")
     key = r.text.strip()
     GBIF_DIR.mkdir(parents=True, exist_ok=True)
-    STATE.write_text(json.dumps({"key": key, "requested_utc": datetime.now(timezone.utc).isoformat(),
-                                 "predicate": predicate()}, indent=2))
+    STATE.write_text(
+        json.dumps(
+            {"key": key, "requested_utc": datetime.now(timezone.utc).isoformat(), "predicate": predicate()},
+            indent=2,
+        )
+    )
     log.info("GBIF download requested: %s", key)
     return key
 
@@ -100,16 +132,23 @@ def wait_and_fetch() -> None:
             sys.exit(f"GBIF download {key} ended with {status}")
         time.sleep(poll)
     state = json.loads(STATE.read_text())
-    state.update({"doi": meta.get("doi"), "totalRecords": meta.get("totalRecords"),
-                  "created": meta.get("created"), "downloadLink": meta.get("downloadLink"),
-                  "license": meta.get("license")})
+    state.update(
+        {
+            "doi": meta.get("doi"),
+            "totalRecords": meta.get("totalRecords"),
+            "created": meta.get("created"),
+            "downloadLink": meta.get("downloadLink"),
+            "license": meta.get("license"),
+        }
+    )
     STATE.write_text(json.dumps(state, indent=2))
     z = download(meta["downloadLink"], GBIF_DIR / f"{key}.zip", log)
     with zipfile.ZipFile(z) as zf:
         name = [n for n in zf.namelist() if n.endswith(".csv")][0]
         with zf.open(name) as fh:
-            df = pd.read_csv(fh, sep="\t", quoting=3, dtype=str, on_bad_lines="warn",
-                             usecols=lambda c: c in KEEP_COLS)
+            df = pd.read_csv(
+                fh, sep="\t", quoting=3, dtype=str, on_bad_lines="warn", usecols=lambda c: c in KEEP_COLS
+            )
     df.to_csv(RAW_CSV, index=False)
     log.info("saved %d records -> %s (DOI %s)", len(df), RAW_CSV.name, state["doi"])
 
@@ -117,10 +156,14 @@ def wait_and_fetch() -> None:
 def search_fallback() -> None:
     """Paged occurrence/search; each partition is kept below the 100k offset limit."""
     e = config()["grid"]["training_extent"]
-    base = {"familyKey": config()["taxa"]["gbif_family_key"], "hasCoordinate": "true",
-            "hasGeospatialIssue": "false", "occurrenceStatus": "PRESENT",
-            "decimalLatitude": f"{e['lat_min']},{e['lat_max']}",
-            "decimalLongitude": f"{e['lon_min']},{e['lon_max']}"}
+    base = {
+        "familyKey": config()["taxa"]["gbif_family_key"],
+        "hasCoordinate": "true",
+        "hasGeospatialIssue": "false",
+        "occurrenceStatus": "PRESENT",
+        "decimalLatitude": f"{e['lat_min']},{e['lat_max']}",
+        "decimalLongitude": f"{e['lon_min']},{e['lon_max']}",
+    }
 
     from concurrent.futures import ThreadPoolExecutor
 
@@ -154,8 +197,9 @@ def search_fallback() -> None:
                 for mo, nm in facet({**p, "year": y}, "month", 12).items():
                     parts.append(({**p, "year": y, "month": mo}, nm))
         n_noyear += n_cc - sum(years.values())
-    log.info("search fallback: %d partitions; %d records without year/month not fetched",
-             len(parts), n_noyear)
+    log.info(
+        "search fallback: %d partitions; %d records without year/month not fetched", len(parts), n_noyear
+    )
 
     def fetch(part):
         p, n = part
@@ -177,10 +221,19 @@ def search_fallback() -> None:
     df = pd.DataFrame(rows).drop_duplicates("gbifID")
     GBIF_DIR.mkdir(parents=True, exist_ok=True)
     df.to_csv(RAW_CSV, index=False)
-    STATE.write_text(json.dumps({"method": "occurrence/search fallback", "params": base,
-                                 "retrieved_utc": datetime.now(timezone.utc).isoformat(),
-                                 "doi": None, "totalRecords": len(df),
-                                 "records_without_year_or_month_not_fetched": n_noyear}, indent=2))
+    STATE.write_text(
+        json.dumps(
+            {
+                "method": "occurrence/search fallback",
+                "params": base,
+                "retrieved_utc": datetime.now(timezone.utc).isoformat(),
+                "doi": None,
+                "totalRecords": len(df),
+                "records_without_year_or_month_not_fetched": n_noyear,
+            },
+            indent=2,
+        )
+    )
     log.info("saved %d records (search fallback, no DOI)", len(df))
 
 
