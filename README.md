@@ -7,6 +7,7 @@ protected areas?
 - **Live dashboard:** https://salepguard.streamlit.app
 - **Pitch video:** TODO: add YouTube/Vimeo URL
 - **Slides:** [`slides/`](slides/)
+- **Team status / handoff:** [`docs/HANDOFF.md`](docs/HANDOFF.md)
 
 > SalepGuard is a **risk-prioritisation tool**, not a map of observed harvest or of orchid locations.
 > Maps are modelled, deliberately coarse (~9 km) and require field validation. Nothing here is clinical
