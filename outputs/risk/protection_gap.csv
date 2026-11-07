@@ -1,13 +1,13 @@
 species_slug,species,genus,suitable_km2_turkey,protected_suitable_km2,protected_pct,mean_pressure_in_suitable,auc_mean,tss_mean
 ophrys_sphegodes,Ophrys sphegodes,Ophrys,145109,5571,3.84,0.373,0.694,0.3083
-anacamptis_morio,Anacamptis morio,Anacamptis,145065,5850,4.03,0.316,0.6801,0.2862
+anacamptis_morio,Anacamptis morio,Anacamptis,145065,5979,4.12,0.316,0.6801,0.2862
 orchis_purpurea,Orchis purpurea,Orchis,295984,13584,4.59,0.315,0.8372,0.5753
-neotinea_tridentata,Neotinea tridentata,Neotinea,334094,16280,4.87,0.324,0.6622,0.2945
+neotinea_tridentata,Neotinea tridentata,Neotinea,334094,16345,4.89,0.324,0.6622,0.2945
 anacamptis_pyramidalis,Anacamptis pyramidalis,Anacamptis,62651,3287,5.25,0.415,0.6398,0.2314
 ophrys_reinholdii,Ophrys reinholdii,Ophrys,416920,22792,5.47,0.336,0.7634,0.4464
 anacamptis_papilionacea,Anacamptis papilionacea,Anacamptis,61449,3604,5.86,0.357,0.7799,0.4596
 serapias_vomeracea,Serapias vomeracea,Serapias,76573,4560,5.95,0.417,0.7564,0.4547
-anacamptis_laxiflora,Anacamptis laxiflora,Anacamptis,89457,5770,6.45,0.409,0.7439,0.4042
+anacamptis_laxiflora,Anacamptis laxiflora,Anacamptis,89457,5786,6.47,0.409,0.7439,0.4042
 anacamptis_coriophora,Anacamptis coriophora,Anacamptis,66307,4369,6.59,0.354,0.6969,0.3206
 orchis_anatolica,Orchis anatolica,Orchis,123704,8224,6.65,0.332,0.8872,0.7017
 himantoglossum_robertianum,Himantoglossum robertianum,Himantoglossum,57498,4305,7.49,0.378,0.8483,0.5927

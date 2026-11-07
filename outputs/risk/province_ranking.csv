@@ -65,7 +65,7 @@ rank,province,shapeISO,mean_priority,max_priority,n_hotspot_cells,n_robust_hotsp
 64,Aksaray,TR-68,0.0829,0.3687,1,0,17,0.315,3.12,36.73,Orchis purpurea; Neotinea tridentata; Anacamptis morio
 65,Kayseri,TR-38,0.0799,0.3602,0,0,0,0.293,1.86,2.81,Orchis purpurea; Neotinea tridentata; Ophrys scolopax
 66,Iğdır,TR-76,0.0678,0.1702,0,0,0,0.262,2.03,9.11,Anacamptis coriophora; Anacamptis pyramidalis; Neotinea tridentata
-67,Artvin,TR-08,0.0638,0.3488,0,0,0,0.213,1.31,8.76,Neotinea tridentata; Orchis purpurea; Anacamptis coriophora
+67,Artvin,TR-08,0.0624,0.3488,0,0,0,0.213,1.31,11.92,Neotinea tridentata; Orchis purpurea; Anacamptis coriophora
 68,Bitlis,TR-13,0.062,0.174,0,0,0,0.272,1.03,0.71,Neotinea tridentata; Anacamptis coriophora; Anacamptis laxiflora
 69,Sivas,TR-58,0.06,0.3002,0,0,0,0.233,1.12,0.39,Neotinea tridentata; Orchis purpurea; Anacamptis morio
 70,Bingöl,TR-12,0.0581,0.2197,0,0,0,0.279,1.04,0.0,Neotinea tridentata; Ophrys reinholdii; Anacamptis pyramidalis

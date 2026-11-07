@@ -16,3 +16,6 @@ logs/
 # Cropped covariates are therefore NOT committed; rebuild with: python run_all.py --only worldclim
 data/processed/covariates/
 data/processed/covariates_future/
+
+# private team notes (Turkish prompts/briefings)
+team_notes/

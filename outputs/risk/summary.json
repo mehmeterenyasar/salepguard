@@ -2,8 +2,8 @@
   "model_source": "baseline",
   "n_species": 20,
   "n_clean_records": 24557,
-  "turkey_protected_pct": 4.44,
-  "suitable_area_protected_pct": 4.39,
+  "turkey_protected_pct": 4.46,
+  "suitable_area_protected_pct": 4.41,
   "median_species_protected_pct": 6.62,
   "top_province": "\u0130stanbul",
   "top5_provinces": [

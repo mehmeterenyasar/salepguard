@@ -96,6 +96,13 @@ def main() -> None:
         for s in sp_list.loc[sp_list["selected"], "species_slug"]
         if (mdir / f"{s}_suitability_mean.tif").exists()
     ]
+    # optional quality gate from the modelling lead: include_in_index == False excludes a species
+    if "include_in_index" in metrics.columns:
+        keep = metrics["include_in_index"].astype(str).str.lower().isin(["true", "1", "yes"])
+        excluded = sorted(set(metrics.loc[~keep, "species_slug"]) & set(slugs))
+        slugs = [s for s in slugs if s not in excluded]
+        if excluded:
+            log.warning("excluded by include_in_index=False: %s", ", ".join(excluded))
     names = dict(zip(sp_list["species_slug"], sp_list["species"]))
     thr = dict(zip(metrics["species_slug"], metrics["threshold"]))
     log.info("model source=%s, species=%d", source, len(slugs))
