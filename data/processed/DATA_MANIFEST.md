@@ -1,6 +1,6 @@
 # DATA_MANIFEST
 
-Generated 2026-11-07 16:08 UTC by `src/data/manifest.py`.
+Generated 2026-11-07 18:01 UTC by `src/data/manifest.py`.
 
 ## Shared grid
 
@@ -10,10 +10,10 @@ Generated 2026-11-07 16:08 UTC by `src/data/manifest.py`.
 
 ## GBIF occurrence download
 
-- Method: occurrence/search fallback
+- Method: GBIF Download API (SIMPLE_CSV)
 - DOI: none (search API fallback) - TODO: replace with Download API DOI
-- Retrieved: 2026-11-07T16:08:01.268163+00:00
-- Records: 62233
+- Retrieved: 2026-11-07T17:49:30.361596+00:00
+- Records: None
 - Query: familyKey=7689 (Orchidaceae), hasCoordinate=true, hasGeospatialIssue=false, occurrenceStatus=PRESENT, within training-extent polygon
 
 ## Files
@@ -31,7 +31,7 @@ Generated 2026-11-07 16:08 UTC by `src/data/manifest.py`.
 | `pressure_accessibility.tif` | Travel time to cities 2015 (Weiss et al. 2018, Nature 553:333-336, doi:10.1038/nature25181), Malaria Atlas Project WCS | Mean travel time per cell -> log1p -> min-max -> 1 - x (high = accessible). |
 | `pressure_index.tif` | WorldPop 2020 population density, 1 km, UN-adjusted, Turkey (WorldPop & CIESIN 2018, doi:10.5258/SOTON/WP00674) | w_pop * population + w_acc * accessibility, re-scaled 0-1 (weights in config). Also MAP. |
 | `pressure_scenarios/*.tif` | WorldPop 2020 population density, 1 km, UN-adjusted, Turkey (WorldPop & CIESIN 2018, doi:10.5258/SOTON/WP00674) | Sensitivity scenarios with alternative weights (config.pressure.sensitivity_scenarios). |
-| `protected_areas.tif / .gpkg` | OpenStreetMap protected areas (boundary=protected_area|national_park, leisure=nature_reserve) via Overpass API | Polygons; raster = 1 where the cell centre is inside a protected area. |
+| `protected_areas.tif / .gpkg` | Union of WDPA (Nov 2026 public release, 17 Turkish sites) and OpenStreetMap protected areas | Polygons; raster = 1 where the cell centre is inside a protected area. |
 | `turkey_mask.tif, admin0_turkey.gpkg` | geoBoundaries gbOpen TUR ADM0/ADM1 (Runfola et al. 2020, PLoS ONE 15(4):e0231866, doi:10.1371/journal.pone.0231866); source: OpenStreetMap | ADM0 rasterised by cell centre. |
 | `admin1_turkey.gpkg, province_id.tif` | geoBoundaries gbOpen TUR ADM0/ADM1 (Runfola et al. 2020, PLoS ONE 15(4):e0231866, doi:10.1371/journal.pone.0231866); source: OpenStreetMap | 81 provinces; province_id = row order of admin1_turkey.gpkg + 1. |
 
@@ -45,7 +45,8 @@ Generated 2026-11-07 16:08 UTC by `src/data/manifest.py`.
 | worldpop | WorldPop 2020 population density, 1 km, UN-adjusted, Turkey (WorldPop & CIESIN 2018, doi:10.5258/SOTON/WP00674) | CC BY 4.0 | https://hub.worldpop.org/ |
 | map | Travel time to cities 2015 (Weiss et al. 2018, Nature 553:333-336, doi:10.1038/nature25181), Malaria Atlas Project WCS | Malaria Atlas Project open-access policy: CC BY 3.0 Unported (TODO: verify dataset-specific licence) | https://malariaatlas.org/ |
 | osm | OpenStreetMap protected areas (boundary=protected_area|national_park, leisure=nature_reserve) via Overpass API | ODbL 1.0 - (c) OpenStreetMap contributors | https://www.openstreetmap.org/copyright |
-| wdpa | World Database on Protected Areas (UNEP-WCMC & IUCN, Protected Planet) | WDPA Terms of Use (non-commercial; attribution required) | https://www.protectedplanet.net |
+| wdpa | World Database on Protected Areas, public release Nov 2026, Turkey (UNEP-WCMC & IUCN, Protected Planet); only 17 sites are public for Turkey | WDPA Terms of Use (non-commercial; attribution required) | https://www.protectedplanet.net |
+| wdpa_osm | Union of WDPA (Nov 2026 public release, 17 Turkish sites) and OpenStreetMap protected areas | WDPA Terms of Use + ODbL 1.0 | https://www.protectedplanet.net ; https://www.openstreetmap.org/copyright |
 | geoboundaries | geoBoundaries gbOpen TUR ADM0/ADM1 (Runfola et al. 2020, PLoS ONE 15(4):e0231866, doi:10.1371/journal.pone.0231866); source: OpenStreetMap | CC BY-SA 2.0 (as reported by the geoBoundaries API) | https://www.geoboundaries.org |
 | naturalearth | Natural Earth 1:10m admin-0 countries and populated places (cleaning tests only) | Public domain | https://www.naturalearthdata.com |
 

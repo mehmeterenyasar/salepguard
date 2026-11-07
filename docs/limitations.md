@@ -22,8 +22,9 @@ Nothing here is clinical, legal or definitive information.
   a salep genus is harvested equally; species-level use is marked `TODO: verify`.
 - **Cleaning** omits an institution/herbarium-coordinate test; some records with large but unreported
   coordinate uncertainty remain.
-- **Protected areas.** If the OpenStreetMap fallback is used it is incomplete and mixes designations of
-  different strength; WDPA is preferred. Legal protection ≠ effective protection against collection.
+- **Protected areas.** The public WDPA release has only 17 Turkish sites, so the layer relies mostly on
+  OpenStreetMap, which is incomplete and mixes designations of different strength (≈4.4 % of Turkish
+  cells protected). Legal protection ≠ effective protection against collection.
 - **Climate data** are 1970–2000 normals at ~4.6 km; microhabitats (meadows, open pine forest,
   graveyards) are not resolved.
 

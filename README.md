@@ -64,7 +64,7 @@ uncertainty.
 | Future bioclim | WorldClim CMIP6 (MPI-ESM1-2-HR, IPSL-CM6A-LR, MIROC6) | SSP2-4.5, SSP5-8.5, 2041–2060 | as WorldClim | — |
 | Population density | WorldPop, 1 km UN-adj. | 2020 | CC BY 4.0 | doi:10.5258/SOTON/WP00674 |
 | Travel time to cities | Malaria Atlas Project | 2015 | CC BY 3.0 (TODO: verify) | Weiss et al. 2018, doi:10.1038/nature25181 |
-| Protected areas | OpenStreetMap (fallback); WDPA preferred | 2026-11-07 | ODbL / WDPA ToU | — |
+| Protected areas | WDPA (Nov 2026 public release; only 17 Turkish sites public) ∪ OpenStreetMap | Nov 2026 / 2026-11-07 | WDPA ToU / ODbL | UNEP-WCMC & IUCN (2026) Protected Planet: WDPA, Nov 2026 |
 | Province boundaries | geoBoundaries gbOpen TUR | 2023 build | CC BY-SA 2.0 | Runfola et al. 2020, doi:10.1371/journal.pone.0231866 |
 
 You can find full details in [`docs/data_sources.md`](docs/data_sources.md) and in the auto-generated
@@ -80,7 +80,7 @@ You can find full details in [`docs/data_sources.md`](docs/data_sources.md) and 
   in the extent and ≥ 15 cells in Turkey are modelled. All-orchid records form a target-group background
   that corrects for sampling bias.
 - **Models:** the final model is bias-corrected MaxEnt with spatial block CV and bootstrap (in
-  [`modeling/`](modeling/), by the modelling lead). There is also a Python MaxEnt **baseline** (`elapid`)
+  [`modeling/`](modeling/), by Sena Aydın). There is also a Python MaxEnt **baseline** (`elapid`)
   with 5-fold CV and 10 bootstrap refits, used as fallback and robustness check.
 - **Pressure:** `0.5 × log population + 0.5 × inverted log travel time`, each scaled 0–1. The pressure
   weights are tested at 0.7/0.3 and 0.3/0.7.
@@ -193,7 +193,7 @@ team's specification. The team made the design decisions and reviewed the output
 ## Team
 
 - **Mehmet Eren Yaşar**: data pipeline, risk index, dashboard, documentation
-- **TODO: teammate name**: statistical modelling (SDMs, spatial validation, uncertainty), methods & limitations
+- **Sena Aydın** ([@aydin-sena](https://github.com/aydin-sena)): statistical modelling (SDMs, spatial validation, uncertainty), methods & limitations
 
 ## Future work
 

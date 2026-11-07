@@ -122,10 +122,19 @@ def load_osm() -> gpd.GeoDataFrame:
 
 def main() -> None:
     grid = training_grid()
-    gdf = load_wdpa()
-    if gdf is None:
-        log.warning("WDPA not found in data/raw/wdpa/ -> using OpenStreetMap fallback")
-        gdf = load_osm()
+    # The public WDPA release for Turkey contains only a handful of sites (most national
+    # designations are not shared publicly), so WDPA and OpenStreetMap are combined (union).
+    parts = []
+    wdpa = load_wdpa()
+    if wdpa is None:
+        log.warning("WDPA not found in data/raw/wdpa/ -> OpenStreetMap only")
+    else:
+        parts.append(wdpa)
+        log.info("WDPA polygons: %d", len(wdpa))
+    osm = load_osm()
+    log.info("OpenStreetMap polygons: %d", len(osm))
+    parts.append(osm)
+    gdf = gpd.GeoDataFrame(pd.concat(parts, ignore_index=True), geometry="geometry", crs="EPSG:4326")
     gdf = gdf[gdf.is_valid].reset_index(drop=True)
     write_vector(gdf, PROCESSED / "protected_areas.gpkg")
     arr = rasterize(
@@ -139,8 +148,8 @@ def main() -> None:
     write_raster(PROCESSED / "protected_areas.tif", arr, grid, nodata=255, dtype="uint8")
     m = turkey_mask()
     log.info(
-        "source=%s polygons=%d, protected share of Turkey cells=%.2f%%",
-        gdf["source"].iloc[0],
+        "sources=%s polygons=%d, protected share of Turkey cells=%.2f%%",
+        "+".join(sorted(gdf["source"].unique())),
         len(gdf),
         100 * float(arr[m].mean()),
     )

@@ -55,8 +55,9 @@ This is a proxy for *potential* harvest pressure, not observed harvest.
 
 ## 4. Protected areas [pipeline]
 
-WDPA (Protected Planet) is the preferred source. If it is not present in `data/raw/wdpa/` the
-pipeline falls back to OpenStreetMap (`boundary=protected_area|national_park`,
+WDPA (Protected Planet, November 2026 public release) and OpenStreetMap are combined (union). The
+public WDPA release for Turkey contains only 17 sites (most national designations are not publicly
+shared), so OpenStreetMap supplies most polygons (`boundary=protected_area|national_park`,
 `leisure=nature_reserve`; `protect_class` > 6 dropped). A cell is protected if its centre falls
 inside a polygon. The source actually used is recorded in `DATA_MANIFEST.md`.
 

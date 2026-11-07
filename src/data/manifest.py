@@ -49,9 +49,15 @@ SOURCES = {
         "https://www.openstreetmap.org/copyright",
     ),
     "wdpa": (
-        "World Database on Protected Areas (UNEP-WCMC & IUCN, Protected Planet)",
+        "World Database on Protected Areas, public release Nov 2026, Turkey (UNEP-WCMC & IUCN, "
+        "Protected Planet); only 17 sites are public for Turkey",
         "WDPA Terms of Use (non-commercial; attribution required)",
         "https://www.protectedplanet.net",
+    ),
+    "wdpa_osm": (
+        "Union of WDPA (Nov 2026 public release, 17 Turkish sites) and OpenStreetMap protected areas",
+        "WDPA Terms of Use + ODbL 1.0",
+        "https://www.protectedplanet.net ; https://www.openstreetmap.org/copyright",
     ),
     "geoboundaries": (
         "geoBoundaries gbOpen TUR ADM0/ADM1 (Runfola et al. 2020, PLoS ONE 15(4):e0231866, "
@@ -138,7 +144,7 @@ def main() -> None:
     sp = RAW / "gbif" / "download_state.json"
     if sp.exists():
         gbif_state = json.loads(sp.read_text())
-    pa_source = "wdpa" if any((RAW / "wdpa").glob("*")) else "osm"
+    pa_source = "wdpa_osm" if any((RAW / "wdpa").glob("*")) else "osm"
     doi = gbif_state.get("doi")
     lines = [
         "# DATA_MANIFEST",

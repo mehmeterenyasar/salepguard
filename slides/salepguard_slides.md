@@ -14,7 +14,7 @@ style: |
 ### Where are Turkey's salep orchids most exposed to tuber harvest, outside protected areas?
 
 EthnoHack 2026 · Track 3: Biodiversity & Sustainability
-Mehmet Eren Yaşar · TODO: teammate name
+Mehmet Eren Yaşar · Sena Aydın
 
 <span class="small">Risk prioritisation, not observed harvest. Coarse (~9 km) by design.</span>
 
@@ -117,7 +117,7 @@ Live: https://salepguard.streamlit.app
 # Team & next steps
 
 **Mehmet Eren Yaşar**: data pipeline, risk index, dashboard
-**TODO**: statistical modelling, validation, uncertainty
+**Sena Aydın**: statistical modelling, validation, uncertainty
 
 Next steps: herbarium data for eastern Turkey · trade/interview-based pressure · WDPA + national registry ·
 field validation with local partners · cultivation-suitability module

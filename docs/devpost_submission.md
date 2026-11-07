@@ -72,7 +72,7 @@ Project); OpenStreetMap (ODbL) / WDPA (UNEP-WCMC & IUCN); geoBoundaries (CC BY-S
 ## Team members
 
 - Mehmet Eren Yaşar: data pipeline, risk index, dashboard, documentation
-- TODO: teammate name: statistical modelling, validation, uncertainty
+- Sena Aydın: statistical modelling, validation, uncertainty
 
 ## Impact and future development
 
