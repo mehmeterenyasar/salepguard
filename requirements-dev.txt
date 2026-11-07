@@ -1,0 +1,8 @@
+# Full pipeline + baseline model + tests (tested with Python 3.14, see pinned versions in README)
+-r requirements.txt
+scikit-learn>=1.5
+elapid>=1.0
+pytest>=8.0
+ruff>=0.5
+black>=24.0
+tabulate>=0.9

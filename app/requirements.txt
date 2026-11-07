@@ -1,0 +1,7 @@
+# Minimal runtime for the Streamlit dashboard (Streamlit Community Cloud)
+streamlit>=1.40
+folium>=0.17
+streamlit-folium>=0.22
+pandas>=2.2
+plotly>=5.20
+matplotlib>=3.8

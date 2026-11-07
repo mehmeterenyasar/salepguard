@@ -1,0 +1,26 @@
+name: salepguard
+channels: [conda-forge]
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - rasterio
+  - geopandas
+  - shapely
+  - pyproj
+  - pyogrio
+  - pyyaml
+  - requests
+  - matplotlib
+  - pillow
+  - scikit-learn
+  - plotly
+  - folium
+  - pytest
+  - ruff
+  - black
+  - pip
+  - pip:
+      - streamlit
+      - streamlit-folium
+      - elapid

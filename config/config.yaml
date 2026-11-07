@@ -1,0 +1,79 @@
+# SalepGuard — central configuration. All scripts read this file.
+
+project:
+  name: SalepGuard
+  random_seed: 42
+
+grid:
+  crs: "EPSG:4326"
+  # WorldClim 2.1, 2.5 arc-minute = 1/24 degree (~4.6 km). Extent edges are
+  # multiples of the resolution, so every layer aligns exactly with WorldClim.
+  resolution_deg: 0.041666666666666664
+  training_extent: {lon_min: 19.0, lon_max: 45.0, lat_min: 34.0, lat_max: 43.0}
+  # Prediction / reporting extent = Turkey (see turkey_mask.tif)
+  report_country_iso3: TUR
+  # Coarser display grid for responsible display (5 arc-min ~ 9.3 km)
+  display_aggregation_factor: 2
+
+taxa:
+  family: Orchidaceae
+  gbif_family_key: 7689
+  # Tuberous orchid genera used for salep in Turkey (see docs/data_sources.md
+  # and species_list.csv: salep_use_reference).
+  salep_genera:
+    - Anacamptis
+    - Dactylorhiza
+    - Himantoglossum
+    - Neotinea
+    - Ophrys
+    - Orchis
+    - Serapias
+    - Platanthera   # TODO: verify genus-level salep-use citation
+    - Steveniella   # TODO: verify genus-level salep-use citation
+  # genera whose salep-use citation is still to be verified (flagged in species_list.csv)
+  unverified_genera: [Platanthera, Steveniella]
+
+gbif:
+  # Credentials are read from environment variables (or a local .env file):
+  # GBIF_USER, GBIF_PWD, GBIF_EMAIL
+  format: SIMPLE_CSV
+  poll_seconds: 60
+
+cleaning:
+  drop_basis_of_record: [FOSSIL_SPECIMEN, LIVING_SPECIMEN]
+  min_year: 1970
+  drop_missing_year: true
+  max_coordinate_uncertainty_m: 5000
+  centroid_buffer_m: 1000        # CoordinateCleaner default for cen/cap tests
+  capital_buffer_m: 10000
+  gbif_hq_buffer_m: 1000
+
+species_selection:
+  min_unique_cells_training: 50
+  min_unique_cells_turkey: 15
+
+pressure:
+  # pressure_index = w_pop * population_norm + w_acc * accessibility_norm
+  weights: {population: 0.5, accessibility: 0.5}
+  sensitivity_scenarios:
+    balanced: {population: 0.5, accessibility: 0.5}
+    population_heavy: {population: 0.7, accessibility: 0.3}
+    access_heavy: {population: 0.3, accessibility: 0.7}
+
+risk:
+  hotspot_top_fraction: 0.05      # top 5% of Turkish cells = hotspot
+  robust_max_cv: 0.5              # robust hotspot: top 5% AND CV(priority) below this
+  species_weights: {}             # empty = equal weights (w_s = 1)
+
+baseline_model:
+  max_abs_correlation: 0.7
+  n_background: 10000
+  cv_folds: 5
+  threshold_method: max_sens_spec   # maximises TSS on training CV
+  n_bootstrap: 10
+
+future:
+  scenarios: [ssp245, ssp585]
+  period: "2041-2060"
+  # ensemble mean of 3 GCMs; inter-GCM SD written as *_gcm_sd.tif (uncertainty)
+  gcms: [MPI-ESM1-2-HR, IPSL-CM6A-LR, MIROC6]
