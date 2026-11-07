@@ -7,4 +7,3 @@ headless = true
 
 [browser]
 gatherUsageStats = false
-
