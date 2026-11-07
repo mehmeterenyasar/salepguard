@@ -16,7 +16,7 @@
 - [ ] Fresh clone: `pip install -r requirements-dev.txt && streamlit run app/app.py` works
 
 ## Deliverables
-- [ ] Dashboard live on Streamlit Community Cloud; opens in a private window
+- [x] Dashboard live on Streamlit Community Cloud (https://salepguard.streamlit.app); opens in a private window
 - [ ] Video ≤ 10 min, public or unlisted, link works while logged out
 - [ ] Slides ≤ 10, exported to PDF in `slides/`
 - [ ] Devpost: all fields filled (`docs/devpost_submission.md`), track selected, both team members added,

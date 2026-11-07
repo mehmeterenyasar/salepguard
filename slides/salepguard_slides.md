@@ -65,7 +65,7 @@ Mehmet Eren Yaşar · TODO: teammate name
 ![w:900](../outputs/figures/priority_index.png)
 
 Species explorer · Risk & priority (live sensitivity scenarios) · Province ranking · Protection gap · Methods
-TODO: dashboard URL / screenshot
+Live: https://salepguard.streamlit.app
 
 ---
 
@@ -122,4 +122,4 @@ TODO: dashboard URL / screenshot
 Next steps: herbarium data for eastern Turkey · trade/interview-based pressure · WDPA + national registry ·
 field validation with local partners · cultivation-suitability module
 
-github.com/mehmeterenyasar/salepguard · TODO: dashboard URL
+github.com/mehmeterenyasar/salepguard · salepguard.streamlit.app

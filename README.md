@@ -4,7 +4,7 @@
 Where could salep orchids live, where is harvest pressure high, and which of those places lie outside
 protected areas?
 
-- **Live dashboard:** TODO: add Streamlit Community Cloud URL
+- **Live dashboard:** https://salepguard.streamlit.app
 - **Pitch video:** TODO: add YouTube/Vimeo URL
 - **Slides:** [`slides/`](slides/)
 
