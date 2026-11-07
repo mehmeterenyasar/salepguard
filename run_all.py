@@ -13,7 +13,7 @@ STEPS = [
     ("worldclim", ["-m", "src.data.worldclim"]),
     ("pressure", ["-m", "src.features.pressure"]),
     ("protected", ["-m", "src.data.protected_areas"]),
-    ("gbif", ["-m", "src.data.gbif_download", "wait"]),
+    ("gbif", ["-m", "src.data.gbif_download", "auto"]),
     ("clean", ["-m", "src.data.clean_occurrences"]),
     ("manifest", ["-m", "src.data.manifest"]),
     ("baseline", ["-m", "src.models.baseline"]),

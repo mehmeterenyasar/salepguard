@@ -237,6 +237,20 @@ def search_fallback() -> None:
     log.info("saved %d records (search fallback, no DOI)", len(df))
 
 
+def auto() -> None:
+    """Pipeline default: Download API if credentials exist, otherwise reuse cached data or fall back."""
+    load_dotenv()
+    has_creds = all(os.environ.get(k) for k in ("GBIF_USER", "GBIF_PWD", "GBIF_EMAIL"))
+    state = json.loads(STATE.read_text()) if STATE.exists() else {}
+    if has_creds and not state.get("doi"):
+        wait_and_fetch()
+    elif RAW_CSV.exists():
+        log.info("using cached GBIF export (%s)", state.get("method", "Download API"))
+    else:
+        log.warning("no GBIF credentials -> occurrence/search fallback (no DOI)")
+        search_fallback()
+
+
 if __name__ == "__main__":
-    cmd = sys.argv[1] if len(sys.argv) > 1 else "wait"
-    {"request": request_download, "wait": wait_and_fetch, "search": search_fallback}[cmd]()
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "auto"
+    {"request": request_download, "wait": wait_and_fetch, "search": search_fallback, "auto": auto}[cmd]()
