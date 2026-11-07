@@ -62,7 +62,7 @@ pressure:
 
 risk:
   hotspot_top_fraction: 0.05      # top 5% of Turkish cells = hotspot
-  robust_max_cv: 0.5              # robust hotspot: top 5% AND CV(priority) below this
+  robust_z: 1.645                 # robust hotspot: priority - z*SD still above the top-5% threshold (one-sided 95%)
   species_weights: {}             # empty = equal weights (w_s = 1)
 
 baseline_model:

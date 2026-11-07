@@ -25,6 +25,10 @@ DOCS = ROOT / "docs"
 
 st.set_page_config(page_title="SalepGuard", page_icon="🌸", layout="wide")
 
+TILES = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+TURKEY_BOUNDS = [[35.8, 25.7], [42.1, 44.8]]
+TILE_ATTR = "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors, and the GIS user community"
+
 DISCLAIMER = (
     "**Risk prioritisation, not observed harvest.** Maps show modelled habitat suitability "
     "combined with proxy harvest pressure at a deliberately coarse resolution for responsible "
@@ -73,7 +77,7 @@ def legend(name: str) -> None:
     if meta.get("categorical"):
         labels = {
             "protected_areas": {"1": "Protected area"},
-            "hotspot_class": {"1": "Hotspot (top 5%)", "2": "Robust hotspot (top 5%, low uncertainty)"},
+            "hotspot_class": {"1": "Hotspot (top 5%)", "2": "Robust hotspot (lower 95% bound still top 5%)"},
         }
         lab = labels.get(name, {"1": meta["label"]})
         chips = " ".join(
@@ -107,7 +111,8 @@ def make_map(
         zoom_start=6,
         min_zoom=5,
         max_zoom=9,
-        tiles="CartoDB positron",
+        tiles=TILES,
+        attr=TILE_ATTR,
         control_scale=True,
     )
     for name in layers:
@@ -129,6 +134,7 @@ def make_map(
             tooltip=folium.GeoJsonTooltip(["province"], labels=False),
         ).add_to(m)
     folium.LayerControl(collapsed=True).add_to(m)
+    m.fit_bounds(TURKEY_BOUNDS)
     st_folium(m, height=height, use_container_width=True, returned_objects=[], key=key)
 
 
@@ -168,7 +174,7 @@ def page_overview():
     c[3].metric("Top priority province", s["top_province"])
     st.markdown(
         f"Top-5 provinces by mean priority: **{', '.join(s['top5_provinces'])}**. "
-        f"Robust hotspots (top 5% priority with low model uncertainty): "
+        f"Robust hotspots (top 5% even at the lower 95% uncertainty bound): "
         f"**{s['n_robust_hotspot_cells']:,} cells** of {s['n_hotspot_cells']:,} hotspot cells."
     )
     banner()
@@ -312,7 +318,8 @@ def page_provinces():
     )
     left, right = st.columns([3, 2])
     with left:
-        m = folium.Map(location=[39.0, 35.3], zoom_start=6, tiles="CartoDB positron")
+        m = folium.Map(location=[39.0, 35.3], zoom_start=6, tiles=TILES, attr=TILE_ATTR)
+        m.fit_bounds(TURKEY_BOUNDS)
         folium.Choropleth(
             geo_data=geojson("provinces"),
             data=prov,

@@ -114,7 +114,9 @@ def main() -> None:
     prio_sd = np.where(tr, raw_sd / scale, np.nan)
     cv = np.where(tr & (raw > 0), raw_sd / np.maximum(raw, 1e-9), np.nan)
     hot = top_mask(prio, tr, rcfg["hotspot_top_fraction"])
-    robust = hot & (cv < rcfg["robust_max_cv"])
+    hot_thr = float(np.nanquantile(prio[tr], 1 - rcfg["hotspot_top_fraction"]))
+    # robust = still above the hotspot threshold at the lower one-sided bound (priority - z * SD)
+    robust = hot & ((prio - rcfg["robust_z"] * prio_sd) >= hot_thr)
     hot_class = np.where(tr, 0, np.nan).astype("float32")
     hot_class[hot] = 1
     hot_class[robust] = 2

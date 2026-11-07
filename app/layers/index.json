@@ -1,0 +1,2754 @@
+{
+ "model_source": "baseline",
+ "aggregation_arcmin": 5.0,
+ "layers": {
+  "pressure_index": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "cividis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Harvest pressure (0-1)",
+   "categorical": null
+  },
+  "pressure_population": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "cividis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Population (log, 0-1)",
+   "categorical": null
+  },
+  "pressure_accessibility": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "cividis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Accessibility (0-1)",
+   "categorical": null
+  },
+  "protected_areas": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "Greens",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Protected",
+   "categorical": {
+    "1": "#1b7837"
+   }
+  },
+  "priority_index": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 0.9434,
+   "label": "Priority index (0-1)",
+   "categorical": null
+  },
+  "priority_sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.0625,
+   "label": "Priority uncertainty (SD)",
+   "categorical": null
+  },
+  "hotspot_class": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 2.0,
+   "label": "Hotspot class",
+   "categorical": {
+    "1": "#f4a261",
+    "2": "#9b2226"
+   }
+  },
+  "richness": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 17.75,
+   "label": "Species richness (n suitable)",
+   "categorical": null
+  },
+  "priority_balanced": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 0.9434,
+   "label": "Priority (balanced)",
+   "categorical": null
+  },
+  "priority_population_heavy": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 0.9601,
+   "label": "Priority (population_heavy)",
+   "categorical": null
+  },
+  "priority_access_heavy": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 0.9281,
+   "label": "Priority (access_heavy)",
+   "categorical": null
+  },
+  "priority_future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 0.8348,
+   "label": "Priority 2041-60 SSP245",
+   "categorical": null
+  },
+  "priority_change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Priority change (future - now)",
+   "categorical": null
+  },
+  "species_lost_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 8.0,
+   "label": "Species losing suitability",
+   "categorical": null
+  },
+  "species_gained_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 8.0,
+   "label": "Species gaining suitability",
+   "categorical": null
+  },
+  "priority_future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 0.829,
+   "label": "Priority 2041-60 SSP585",
+   "categorical": null
+  },
+  "priority_change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Priority change (future - now)",
+   "categorical": null
+  },
+  "species_lost_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 10.0,
+   "label": "Species losing suitability",
+   "categorical": null
+  },
+  "species_gained_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 8.25,
+   "label": "Species gaining suitability",
+   "categorical": null
+  },
+  "anacamptis_pyramidalis__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "anacamptis_pyramidalis__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2972,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "anacamptis_pyramidalis__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "anacamptis_pyramidalis__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "anacamptis_pyramidalis__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_pyramidalis__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "anacamptis_pyramidalis__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_lutea__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "ophrys_lutea__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.1479,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "ophrys_lutea__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "ophrys_lutea__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "ophrys_lutea__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_lutea__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "ophrys_lutea__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_sphegodes__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "ophrys_sphegodes__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2653,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "ophrys_sphegodes__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "ophrys_sphegodes__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "ophrys_sphegodes__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_sphegodes__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "ophrys_sphegodes__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_papilionacea__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "anacamptis_papilionacea__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2795,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "anacamptis_papilionacea__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "anacamptis_papilionacea__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "anacamptis_papilionacea__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_papilionacea__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "anacamptis_papilionacea__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "orchis_anatolica__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "orchis_anatolica__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2019,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "orchis_anatolica__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "orchis_anatolica__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "orchis_anatolica__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "orchis_anatolica__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "orchis_anatolica__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "orchis_italica__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "orchis_italica__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.1326,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "orchis_italica__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "orchis_italica__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "orchis_italica__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "orchis_italica__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "orchis_italica__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_speculum__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "ophrys_speculum__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.1991,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "ophrys_speculum__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "ophrys_speculum__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "ophrys_speculum__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_speculum__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "ophrys_speculum__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "neotinea_tridentata__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "neotinea_tridentata__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2735,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "neotinea_tridentata__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "neotinea_tridentata__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "neotinea_tridentata__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "neotinea_tridentata__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "neotinea_tridentata__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_fusca__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "ophrys_fusca__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.1837,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "ophrys_fusca__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "ophrys_fusca__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "ophrys_fusca__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_fusca__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "ophrys_fusca__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "orchis_purpurea__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "orchis_purpurea__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2754,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "orchis_purpurea__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "orchis_purpurea__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "orchis_purpurea__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "orchis_purpurea__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "orchis_purpurea__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_laxiflora__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "anacamptis_laxiflora__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.3158,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "anacamptis_laxiflora__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "anacamptis_laxiflora__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "anacamptis_laxiflora__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_laxiflora__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "anacamptis_laxiflora__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "himantoglossum_robertianum__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "himantoglossum_robertianum__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2054,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "himantoglossum_robertianum__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "himantoglossum_robertianum__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "himantoglossum_robertianum__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "himantoglossum_robertianum__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "himantoglossum_robertianum__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_reinholdii__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "ophrys_reinholdii__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.4013,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "ophrys_reinholdii__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "ophrys_reinholdii__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "ophrys_reinholdii__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_reinholdii__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "ophrys_reinholdii__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_vicina__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "ophrys_vicina__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2093,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "ophrys_vicina__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "ophrys_vicina__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "ophrys_vicina__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_vicina__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "ophrys_vicina__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_coriophora__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "anacamptis_coriophora__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2288,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "anacamptis_coriophora__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "anacamptis_coriophora__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "anacamptis_coriophora__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_coriophora__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "anacamptis_coriophora__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_scolopax__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "ophrys_scolopax__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.4383,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "ophrys_scolopax__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "ophrys_scolopax__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "ophrys_scolopax__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_scolopax__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "ophrys_scolopax__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_sancta__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "anacamptis_sancta__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.2841,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "anacamptis_sancta__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "anacamptis_sancta__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "anacamptis_sancta__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_sancta__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "anacamptis_sancta__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_tenthredinifera__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "ophrys_tenthredinifera__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.156,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "ophrys_tenthredinifera__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "ophrys_tenthredinifera__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "ophrys_tenthredinifera__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "ophrys_tenthredinifera__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "ophrys_tenthredinifera__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "serapias_vomeracea__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "serapias_vomeracea__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.3951,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "serapias_vomeracea__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "serapias_vomeracea__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "serapias_vomeracea__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "serapias_vomeracea__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "serapias_vomeracea__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_morio__suitability": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability (0-1)",
+   "categorical": null
+  },
+  "anacamptis_morio__sd": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "magma",
+   "vmin": 0,
+   "vmax": 0.183,
+   "label": "Bootstrap SD",
+   "categorical": null
+  },
+  "anacamptis_morio__binary": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0.0,
+   "vmax": 1.0,
+   "label": "Suitable (thresholded)",
+   "categorical": {
+    "1": "#21918c"
+   }
+  },
+  "anacamptis_morio__future_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP245",
+   "categorical": null
+  },
+  "anacamptis_morio__change_ssp245": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  },
+  "anacamptis_morio__future_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "viridis",
+   "vmin": 0,
+   "vmax": 1,
+   "label": "Suitability 2041-60 SSP585",
+   "categorical": null
+  },
+  "anacamptis_morio__change_ssp585": {
+   "bounds": [
+    [
+     35.66666666666667,
+     25.5
+    ],
+    [
+     42.333333333333336,
+     44.916666666666664
+    ]
+   ],
+   "cmap": "PuOr_r",
+   "vmin": -0.5,
+   "vmax": 0.5,
+   "label": "Change (future - now)",
+   "categorical": null
+  }
+ }
+}

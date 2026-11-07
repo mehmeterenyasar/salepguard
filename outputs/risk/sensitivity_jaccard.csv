@@ -1,0 +1,19 @@
+pressure_scenario,suitability_input,top_fraction,jaccard_vs_reference,n_cells
+balanced,continuous suitability,0.025,1.0,1170
+balanced,continuous suitability,0.05,1.0,2339
+balanced,continuous suitability,0.1,1.0,4678
+balanced,binary suitability,0.025,0.619,1170
+balanced,binary suitability,0.05,0.691,2339
+balanced,binary suitability,0.1,0.725,4678
+population_heavy,continuous suitability,0.025,0.865,1170
+population_heavy,continuous suitability,0.05,0.884,2339
+population_heavy,continuous suitability,0.1,0.898,4678
+population_heavy,binary suitability,0.025,0.614,1170
+population_heavy,binary suitability,0.05,0.7,2339
+population_heavy,binary suitability,0.1,0.741,4678
+access_heavy,continuous suitability,0.025,0.85,1170
+access_heavy,continuous suitability,0.05,0.89,2339
+access_heavy,continuous suitability,0.1,0.902,4678
+access_heavy,binary suitability,0.025,0.609,1170
+access_heavy,binary suitability,0.05,0.663,2339
+access_heavy,binary suitability,0.1,0.708,4678

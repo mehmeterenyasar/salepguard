@@ -106,7 +106,7 @@ sd(priority_i) = sqrt( Σ_s (w_s · pressure_i · (1 − protected_i))² · sd_s
 Independence ignores positive covariance between co-occurring species' errors, so this SD is likely
 an **underestimate**. The coefficient of variation `CV = sd / priority` is reported.
 
-**Hotspots.** Top 5 % of Turkish cells by priority. **Robust hotspot** = hotspot with CV < 0.5.
+**Hotspots.** Top 5 % of Turkish cells by priority. **Robust hotspot** = hotspot whose one-sided 95 % lower bound (`priority − 1.645 · sd`) is still above the top-5 % threshold. (A simple CV < 0.5 rule was tried first but flagged every hotspot as robust, because the propagated SD is small relative to the index.)
 
 **Sensitivity analysis.** Hotspot sets (top 2.5 %, 5 %, 10 %) are recomputed under the three pressure
 weightings and with thresholded (binary) instead of continuous suitability; the Jaccard similarity to

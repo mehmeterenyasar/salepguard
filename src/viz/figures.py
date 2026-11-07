@@ -71,7 +71,7 @@ def main() -> None:
         "Priority hotspots (top 5%)",
         None,
         "hotspots.png",
-        categorical=[("Hotspot", "#f4a261"), ("Robust hotspot (CV < 0.5)", "#9b2226")],
+        categorical=[("Hotspot", "#f4a261"), ("Robust hotspot (lower 95% bound still top 5%)", "#9b2226")],
     )
     map_fig(
         read_raster(RISK / "priority_sd.tif"),
