@@ -1,7 +1,7 @@
 # Devpost submission text (copy and paste)
 
-> Numbers come from the baseline model. Re-check them against `outputs/risk/summary.json` after the final
-> model is integrated, and replace every TODO.
+> Numbers come from the final model (`outputs/risk/summary.json`, `docs/results_summary.md`). Replace every
+> remaining TODO.
 
 **Project title:** SalepGuard
 
@@ -57,15 +57,16 @@ Project); OpenStreetMap (ODbL) / WDPA (UNEP-WCMC & IUCN); geoBoundaries (CC BY-S
 
 ## Results
 
-- 20 salep orchid species modelled. Baseline CV: mean AUC 0.79, TSS 0.49, Boyce 0.85 (final-model
-  metrics: TODO).
+- 20 salep orchid species modelled. Final model, spatial block CV: mean AUC 0.72 (0.58–0.87), TSS 0.32,
+  Boyce 0.58 (random CV would claim 0.76). All species beat a bias-aware null model; 2 with AUC < 0.6 are
+  excluded from the index.
 - Only **4.4 %** of the area suitable for salep orchids lies inside protected areas, no more than the
-  4.4 % of Turkey protected in our layer. For the median species the figure is 6.6 %.
+  4.5 % of Turkey protected in our layer. For the median species the figure is 7.2 %.
 - Priority hotspots concentrate on the Aegean, Marmara and eastern Mediterranean coasts. Top provinces
-  are İstanbul, İzmir, Yalova, Aydın and Hatay. 1,873 of 2,339 hotspot cells remain hotspots at the lower
+  are Hatay, İzmir, Aydın, İstanbul and Gaziantep. 1,983 of 2,339 hotspot cells remain hotspots at the lower
   95 % uncertainty bound.
-- Hotspots are stable across pressure-weight scenarios (Jaccard 0.88–0.89) and moderately sensitive to
-  thresholding (0.66–0.70).
+- Hotspots are stable across pressure-weight scenarios (Jaccard 0.87–0.88) and moderately sensitive to
+  thresholding (0.60–0.64).
 - Limitations: about 65 % of Turkish GBIF records are coordinate-obscured; eastern Anatolia and
   *Dactylorhiza* are under-represented; pressure is a proxy; OSM protected areas are incomplete.
 

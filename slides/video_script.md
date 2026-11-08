@@ -1,7 +1,6 @@
 # Pitch video script (target 8:30, hard limit 10:00)
 
-Numbers come from the **baseline** model. Re-check them against `outputs/risk/summary.json` after the
-final model is integrated.
+Numbers come from the **final** model (`outputs/risk/summary.json`, `docs/results_summary.md`).
 
 | # | Time | Visual | Speaker |
 |---|---|---|---|
@@ -57,9 +56,10 @@ even at the pessimistic end of the propagated uncertainty."
 "Under spatial validation the average AUC is 0.72; random cross-validation would have claimed 0.76, and
 that gap is the optimism we removed. Every species beats a bias-aware null model, but two, *Anacamptis
 morio* and *A. pyramidalis*, stay below 0.6 and are left out of the index. Hotspots cluster on the Aegean,
-Marmara and eastern Mediterranean coasts, and the protection gap is the headline: [Mehmet: update
-hotspot, province and protected-share numbers from `outputs/risk/summary.json` after the final-model
-rerun]. Under climate change the median species loses nine to fourteen percent of its Turkish range if it
+Marmara and eastern Mediterranean coasts, and the protection gap is the headline: Hatay, İzmir,
+Aydın, İstanbul and Gaziantep lead the ranking, 1,983 of 2,339 hotspot cells are robust to model
+uncertainty, and only 4.4 percent of the suitable area is protected, no more than Turkey's 4.5 percent
+overall; for the median species it is 7.2 percent. Under climate change the median species loses nine to fourteen percent of its Turkish range if it
 cannot disperse, and *Himantoglossum robertianum*, *Orchis anatolica* and *Ophrys lutea* lose a third to
 almost ninety percent."
 

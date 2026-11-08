@@ -11,7 +11,6 @@ import json
 
 import numpy as np
 import pandas as pd
-
 from sdm import (
     CACHE,
     COVARIATE_NAMES,

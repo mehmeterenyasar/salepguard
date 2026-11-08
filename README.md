@@ -88,27 +88,28 @@ You can find full details in [`docs/data_sources.md`](docs/data_sources.md) and 
 - **Index, uncertainty, sensitivity, climate change, province ranking, protection gap:** see
   [`docs/methods.md`](docs/methods.md).
 
-## Results (current: baseline model, WDPA + OSM protected areas)
+## Results (final model, WDPA + OSM protected areas)
 
 | | |
 |---|---|
-| Species modelled | 20 (6 genera: *Anacamptis, Ophrys, Orchis, Neotinea, Himantoglossum, Serapias*) |
+| Species modelled | 20 (6 genera: *Anacamptis, Ophrys, Orchis, Neotinea, Himantoglossum, Serapias*); 18 pass the quality rule and enter the index |
+| Final model, spatial block CV (mean of 20 species) | AUC 0.72 (0.58–0.87), TSS 0.32, Boyce 0.58; all beat a bias-aware null model |
 | Baseline CV performance (mean of 20 species) | AUC 0.79 (0.64–0.91), TSS 0.49, Boyce 0.85 |
-| Share of Turkey protected (WDPA + OSM layer) | 4.4 % |
+| Share of Turkey protected (WDPA + OSM layer) | 4.5 % |
 | Share of salep-orchid suitable area protected | **4.4 %**, no better than a random placement of protected areas |
-| Median species: suitable area protected | 6.6 % |
-| Top-5 provinces by mean priority | İstanbul, İzmir, Yalova, Aydın, Hatay |
-| Hotspots (top 5 %) / robust hotspots | 2,339 / 1,873 cells (~39,000 km² hotspot area) |
-| Hotspot stability (Jaccard, top 5 %, alternative pressure weights) | 0.88–0.89 |
-| Hotspot stability (binary instead of continuous suitability) | 0.66–0.70 |
+| Median species: suitable area protected | 7.2 % |
+| Top-5 provinces by mean priority | Hatay, İzmir, Aydın, İstanbul, Gaziantep |
+| Hotspots (top 5 %) / robust hotspots | 2,339 / 1,983 cells (~40,000 km² hotspot area) |
+| Hotspot stability (Jaccard, top 5 %, alternative pressure weights) | 0.87–0.88 |
+| Hotspot stability (binary instead of continuous suitability) | 0.60–0.64 |
 
 ![Priority index](outputs/figures/priority_index.png)
 ![Hotspots](outputs/figures/hotspots.png)
 ![Protection gap](outputs/figures/protection_gap.png)
 
 The numbers above come from `outputs/risk/summary.json`, `protection_gap.csv`,
-`province_ranking.csv`, `sensitivity_jaccard.csv` and `outputs/baseline/metrics.csv`. They will be
-regenerated with the final model.
+`province_ranking.csv`, `sensitivity_jaccard.csv`, `outputs/models/metrics.csv` and
+`docs/results_summary.md`.
 
 ## Validation and uncertainty
 

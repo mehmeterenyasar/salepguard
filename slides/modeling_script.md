@@ -30,7 +30,9 @@ species, *Anacamptis morio* and *Anacamptis pyramidalis*, stay below 0.6, so we 
 priority index rather than pretend.
 
 Predicted richness peaks on the Aegean and Mediterranean coasts, which is also where harvest pressure and
-the hotspots are. [Mehmet: hotspot and protection-gap sentence from `summary.json`.]
+the hotspots are. Hatay, İzmir, Aydın, İstanbul and Gaziantep lead the province ranking, and 1,983 of the
+2,339 hotspot cells stay hotspots even at the pessimistic end of the uncertainty. Yet only 4.4 percent of
+the area suitable for salep orchids is protected, no more than the 4.5 percent of Turkey as a whole.
 
 For 2041 to 2060 the picture depends on dispersal. If orchids could move freely, the median species would
 gain area. But tuberous orchids spread slowly. Without dispersal the median species loses nine to fourteen

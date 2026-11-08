@@ -12,7 +12,6 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 from scipy.optimize import curve_fit
-
 from sdm import COVARIATE_NAMES, COVARIATES, GRID, MODELING, OUT, SEED, load_stack
 
 

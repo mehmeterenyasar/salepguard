@@ -6,7 +6,6 @@
 from __future__ import annotations
 
 import pandas as pd
-
 from sdm import OUT, ROOT
 
 BASE = ROOT / "outputs" / "baseline" / "metrics.csv"

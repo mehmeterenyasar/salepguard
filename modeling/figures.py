@@ -13,7 +13,6 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
-
 from sdm import CACHE, FIG, GRID, MODELING, OUT, read_raster, turkey_mask  # noqa: E402
 
 EXT = (GRID.lon_min, GRID.lon_max, GRID.lat_min, GRID.lat_max)

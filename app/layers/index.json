@@ -1,5 +1,5 @@
 {
- "model_source": "baseline",
+ "model_source": "final",
  "aggregation_arcmin": 5.0,
  "layers": {
   "pressure_index": {
@@ -85,7 +85,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 0.9434,
+   "vmax": 0.9832,
    "label": "Priority index (0-1)",
    "categorical": null
   },
@@ -102,7 +102,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.0625,
+   "vmax": 0.0276,
    "label": "Priority uncertainty (SD)",
    "categorical": null
   },
@@ -139,7 +139,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 17.75,
+   "vmax": 16.0,
    "label": "Species richness (n suitable)",
    "categorical": null
   },
@@ -156,7 +156,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 0.9434,
+   "vmax": 0.9832,
    "label": "Priority (balanced)",
    "categorical": null
   },
@@ -173,7 +173,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 0.9601,
+   "vmax": 0.9665,
    "label": "Priority (population_heavy)",
    "categorical": null
   },
@@ -190,7 +190,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 0.9281,
+   "vmax": 0.9778,
    "label": "Priority (access_heavy)",
    "categorical": null
   },
@@ -207,7 +207,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 0.8348,
+   "vmax": 0.983,
    "label": "Priority 2041-60 SSP245",
    "categorical": null
   },
@@ -241,7 +241,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 8.0,
+   "vmax": 4.6667,
    "label": "Species losing suitability",
    "categorical": null
   },
@@ -258,7 +258,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 8.0,
+   "vmax": 6.25,
    "label": "Species gaining suitability",
    "categorical": null
   },
@@ -275,7 +275,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 0.829,
+   "vmax": 0.9461,
    "label": "Priority 2041-60 SSP585",
    "categorical": null
   },
@@ -309,7 +309,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 10.0,
+   "vmax": 5.0,
    "label": "Species losing suitability",
    "categorical": null
   },
@@ -326,7 +326,7 @@
    ],
    "cmap": "viridis",
    "vmin": 0,
-   "vmax": 8.25,
+   "vmax": 6.25,
    "label": "Species gaining suitability",
    "categorical": null
   },
@@ -360,7 +360,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2972,
+   "vmax": 0.1318,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -481,7 +481,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.1479,
+   "vmax": 0.0514,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -602,7 +602,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2653,
+   "vmax": 0.2143,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -723,7 +723,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2795,
+   "vmax": 0.1096,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -844,7 +844,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2019,
+   "vmax": 0.171,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -965,7 +965,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.1326,
+   "vmax": 0.0792,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -1086,7 +1086,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.1991,
+   "vmax": 0.1061,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -1207,7 +1207,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2735,
+   "vmax": 0.1378,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -1328,7 +1328,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.1837,
+   "vmax": 0.1272,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -1449,7 +1449,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2754,
+   "vmax": 0.152,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -1570,7 +1570,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.3158,
+   "vmax": 0.1095,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -1691,7 +1691,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2054,
+   "vmax": 0.1137,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -1812,7 +1812,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.4013,
+   "vmax": 0.1754,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -1933,7 +1933,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2093,
+   "vmax": 0.1492,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -2054,7 +2054,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2288,
+   "vmax": 0.1807,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -2175,7 +2175,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.4383,
+   "vmax": 0.1129,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -2296,7 +2296,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.2841,
+   "vmax": 0.2177,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -2417,7 +2417,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.156,
+   "vmax": 0.112,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -2538,7 +2538,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.3951,
+   "vmax": 0.1284,
    "label": "Bootstrap SD",
    "categorical": null
   },
@@ -2659,7 +2659,7 @@
    ],
    "cmap": "magma",
    "vmin": 0,
-   "vmax": 0.183,
+   "vmax": 0.0807,
    "label": "Bootstrap SD",
    "categorical": null
   },

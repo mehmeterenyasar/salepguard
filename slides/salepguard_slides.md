@@ -74,8 +74,8 @@ Live: https://salepguard.streamlit.app
 
 ![w:760](../outputs/figures/hotspots.png)
 
-- Hotspots are concentrated on the **Aegean, Marmara and eastern Mediterranean** coasts (İzmir, Aydın, Hatay, Marmara)
-- 1,873 of 2,339 hotspot cells stay in the top 5 % even at the lower 95 % uncertainty bound
+- Hotspots are concentrated on the **Aegean, Marmara and eastern Mediterranean** coasts; top provinces Hatay, İzmir, Aydın, İstanbul, Gaziantep
+- 1,983 of 2,339 hotspot cells stay in the top 5 % even at the lower 95 % uncertainty bound
 
 ---
 
@@ -84,10 +84,8 @@ Live: https://salepguard.streamlit.app
 
 ![w:560](../outputs/figures/protection_gap.png)
 
-- Only **4.4 %** of salep-orchid suitable area lies inside protected areas, the same as Turkey's average (4.4 %, WDPA + OSM layer)
-- Median species: **6.6 %** protected
-
-<span class="small">Baseline model numbers; they will be updated with the final model.</span>
+- Only **4.4 %** of salep-orchid suitable area lies inside protected areas, no more than Turkey's average (4.5 %, WDPA + OSM layer)
+- Median species: **7.2 %** protected
 
 ---
 
@@ -109,7 +107,7 @@ Live: https://salepguard.streamlit.app
 - Pressure is a **proxy**: urban cores score high
 - OSM protected areas are incomplete; legal protection ≠ effective protection
 - Genus-level salep attribution; climate projections hold pressure constant
-- **Robustness:** hotspot Jaccard 0.88–0.89 across pressure weights; 0.66–0.70 binary vs continuous
+- **Robustness:** hotspot Jaccard 0.87–0.88 across pressure weights; 0.60–0.64 binary vs continuous
 
 ---
 

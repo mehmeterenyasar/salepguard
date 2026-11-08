@@ -26,15 +26,14 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 
 import numpy as np
 import pandas as pd
-
 from sdm import (
     CACHE,
     COVARIATE_NAMES,
     COVARIATES,
+    FC_GRID,
     MODELING,
     PROCESSED,
     RM_GRID,
-    FC_GRID,
     SEED,
     SSPS,
     assign_folds,

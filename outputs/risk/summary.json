@@ -1,28 +1,28 @@
 {
-  "model_source": "baseline",
-  "n_species": 20,
+  "model_source": "final",
+  "n_species": 18,
   "n_clean_records": 24557,
   "turkey_protected_pct": 4.46,
-  "suitable_area_protected_pct": 4.41,
-  "median_species_protected_pct": 6.62,
-  "top_province": "\u0130stanbul",
+  "suitable_area_protected_pct": 4.45,
+  "median_species_protected_pct": 7.19,
+  "top_province": "Hatay",
   "top5_provinces": [
-    "\u0130stanbul",
+    "Hatay",
     "\u0130zmir",
-    "Yalova",
     "Ayd\u0131n",
-    "Hatay"
+    "\u0130stanbul",
+    "Gaziantep"
   ],
   "n_hotspot_cells": 2339,
-  "n_robust_hotspot_cells": 1873,
-  "hotspot_km2": 39243,
-  "sensitivity_min_jaccard_top5": 0.663,
+  "n_robust_hotspot_cells": 1983,
+  "hotspot_km2": 39724,
+  "sensitivity_min_jaccard_top5": 0.595,
   "future": {
     "ssp245": {
-      "median_change_pct": 9.65
+      "median_change_pct": 21.049999999999997
     },
     "ssp585": {
-      "median_change_pct": 6.699999999999999
+      "median_change_pct": 24.700000000000003
     }
   }
 }

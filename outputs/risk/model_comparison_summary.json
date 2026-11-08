@@ -1,0 +1,6 @@
+{
+  "n_species_compared": 20,
+  "median_spearman_suitability": 0.793,
+  "median_jaccard_binary": 0.4225,
+  "jaccard_top5_priority_final_vs_baseline": 0.5372987183700296
+}
