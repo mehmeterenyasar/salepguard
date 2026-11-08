@@ -29,3 +29,23 @@ python scripts/validate_outputs.py outputs/models
 
 As soon as `outputs/models/metrics.csv` exists, the risk index and dashboard switch from the baseline
 to the final model (`python run_all.py --from risk`).
+
+## How to run the final model
+
+```bash
+python run_all.py --only worldclim          # covariates (not in git), once
+python modeling/run_all_models.py           # everything below, ~25 min on 8 cores
+```
+
+| Step | Script | Output |
+|---|---|---|
+| contract check, bias, thinning, variables (|r| ≤ 0.7, VIF ≤ 10) | `prepare.py` | `variables.txt`, `outputs/models/tables/`, bias + correlation figures |
+| block size from covariate variograms (capped 100–200 km) | `blocksize.py` | `block_size_km.txt` |
+| tuning (fc L/LQ/LQH × rm 0.5/1/2/4) under spatial block CV, random CV, 20 bootstraps, future projection | `run_models.py` | `cache/` |
+| bias-aware null model (3 species) | `null_model.py` | `cache/null_model.csv` |
+| contract rasters, richness, MESS, `metrics.csv`, `range_change.csv` | `assemble.py` | `outputs/models/` |
+| figures | `figures.py` | `outputs/models/figures/` |
+| results summary | `results_summary.py` | `docs/results_summary.md` |
+
+Shared helpers (metrics, blocks, MESS) are in `sdm.py`. Package versions: `sessionInfo.txt`. Seed 42.
+Method details: `docs/methods.md` §5a.

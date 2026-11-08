@@ -51,7 +51,49 @@ Nothing here is clinical, legal or definitive information.
 
 ### Final model [modelling]
 
-_To be completed by the modelling lead._
+- **Sampling bias is reduced, not removed.** Target-group background cancels recording effort only where
+  orchid recorders went. Where nobody recorded any orchid (large parts of central and eastern Anatolia)
+  the model has no information, and low suitability there may simply mean "not recorded".
+- **Obscured coordinates.** About 65 % of Turkish salep-genus records (2,135 of 3,301) were removed
+  because iNaturalist obscures sensitive species to ~28 km. The remaining data are dominated by Greece
+  and Cyprus (`tables/species_records.csv`): for most species fewer than 15 % of the records are Turkish.
+  Turkish predictions are therefore partly a transfer from the Aegean/Balkan part of each range.
+- **Eastern Anatolia and *Dactylorhiza*.** No *Dactylorhiza* species met the selection rule, although
+  the genus is one of the most important salep sources, and eastern Anatolia is almost unrepresented.
+  The richness and risk maps therefore cover mainly western/southern, Mediterranean salep orchids and
+  must not be read as "no salep orchids in the east".
+- **Few records.** Several species have < 150 thinned cells (e.g. *Ophrys vicina* 75, *O. reinholdii*
+  123). Their CV metrics have high fold-to-fold SD and their maps are less reliable.
+- **Taxonomy.** *Ophrys* in particular is taxonomically unstable (lumping/splitting of the *O. fusca*,
+  *O. sphegodes* and *O. scolopax* groups); GBIF backbone names may merge or split taxa that local floras
+  treat differently.
+- **Climate baseline vs record years.** WorldClim 2.1 describes 1970–2000, while the median record year
+  is ~2019–2023 (`share_pre2000` is ≤ 15 % for every species). Recent warming means species are matched
+  to a climate that is slightly cooler than the one they currently experience.
+- **Relative suitability, not probability.** MaxEnt cloglog output is a relative suitability index;
+  prevalence is not identifiable from presence-background data.
+- **No true absences.** AUC, TSS and the thresholds compare presences with background (recording effort),
+  not with confirmed absences, so they measure discrimination from the recorded landscape.
+- **Spatial block CV is still not fully independent.** The covariate autocorrelation range (~850 km
+  median) is much larger than the 200 km blocks we used; with larger blocks whole countries would fall
+  into one fold. Our spatial AUCs are more honest than random-CV AUCs but may still be somewhat optimistic.
+- **Hand-written equivalents of R packages.** Spatial blocks, ENMeval-style tuning, Boyce index and MESS
+  were written in Python following the published methods because the R packages were not available on
+  the night. They were checked against the definitions, not against the R implementations numerically.
+- **Risk ≠ observed harvest.** Suitability × pressure is a potential-risk index; we have no data on where
+  tubers are actually dug.
+- **Dispersal and biotic interactions.** Orchids depend on mycorrhizal fungi and (for *Ophrys*) on specific
+  pollinators; none of this is in the model. Full and no-dispersal scenarios bracket, but do not model,
+  real colonisation.
+- **Extrapolation.** Non-analog climate (MESS < 0) covers a minority of Turkey for most species (mainly
+  the south-east and the high east, `figures/mess_map.png`), so the large per-species changes are mostly
+  *not* an extrapolation artefact (analog-only change is close to the all-cell change, `range_change.csv`).
+  They rather reflect how strongly a model with no true absences and a coastal sampling bias reacts to a
+  shift in the cold limit (bio06) and summer rain (bio18). Clamping keeps predictions bounded but values in
+  non-analog cells are not evidence.
+- **GCM uncertainty is reported, not propagated.** Only the 3-GCM ensemble mean was projected; the
+  inter-GCM SD of the covariates is available as a separate layer. 3 GCMs do not span the CMIP6 spread.
+- **Not done in time:** 10 km thinning sensitivity, GLM comparison.
 
 ### Baseline model [pipeline]
 
