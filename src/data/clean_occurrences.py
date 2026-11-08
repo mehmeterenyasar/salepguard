@@ -23,9 +23,9 @@ NE = RAW / "naturalearth"
 
 GENUS_REFERENCE = (
     "genus-level: Sezik 2002 (Acta Pharm. Turc.); Kasparek & Grimm 1999 "
-    "(Econ. Bot.); TODO: verify species-level use"
+    "(Econ. Bot.); species-level use not verified"
 )
-UNVERIFIED_REFERENCE = "TODO: verify salep-use citation for this genus"
+UNVERIFIED_REFERENCE = "salep use for this genus not verified in the cited literature"
 
 CLEAN_COLS = [
     "species",

@@ -25,10 +25,18 @@ EthnoHack rules require disclosure of significant generative-AI use. We used it 
 - Reviewed the code and outputs, decided on thresholds, and are responsible for all claims.
 - The statistical modelling choices (final SDM, spatial CV, bootstrap) were made by the modelling lead.
 
+## Pitch video and slides
+
+- The slide deck (`slides/salepguard_slides.md`, rendered with Marp) was assembled by Claude Code from
+  the team's slide content and pipeline figures.
+- The pitch video narration uses **synthetic text-to-speech voices** (Piper, open-source; voices
+  `en_US-ryan-high` and `en_US-lessac-high`) reading the team's script (`slides/video_script.md`,
+  `slides/modeling_script.md`). The dashboard demo is a sequence of automated screenshots of the real app.
+
 ## Safeguards
 
-- No metrics, DOIs, licences or references were to be invented; anything the AI could not verify is
-  marked `TODO: verify` in the docs and is on the pre-submission checklist.
+- No metrics, DOIs, licences or references were to be invented; anything the AI could not verify was
+  marked `TODO: verify` and later checked (references against Crossref, licences against the dataset pages).
 - Literature details written from memory were flagged for manual verification.
 - All numbers in the README, slides and dashboard are read from pipeline outputs, not typed by hand.
 
@@ -54,4 +62,4 @@ EthnoHack rules require disclosure of significant generative-AI use. We used it 
 - **What was checked:** contract checks (grid, CRS, NA share; `tables/contract_check.csv`),
   `scripts/validate_outputs.py` before every push, and the metrics table against the baseline. All numbers
   in docs and slides are read from `metrics.csv` / `range_change.csv` by script. References written from
-  memory are marked `TODO: verify`.
+  memory were checked against Crossref before submission.

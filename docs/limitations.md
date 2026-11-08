@@ -19,7 +19,7 @@ Nothing here is clinical, legal or definitive information.
 - **Taxonomy.** Names follow the GBIF backbone; orchid taxonomy (e.g. *Ophrys*, *Dactylorhiza*) is
   contested, and lumping/splitting changes species counts. Subspecies are merged.
 - **Salep-use attribution** is at genus level (Sezik 2002; Kasparek & Grimm 1999). Not every species of
-  a salep genus is harvested equally; species-level use is marked `TODO: verify`.
+  a salep genus is harvested equally; species-level use is not verified.
 - **Cleaning** omits an institution/herbarium-coordinate test; some records with large but unreported
   coordinate uncertainty remain.
 - **Protected areas.** The public WDPA release has only 17 Turkish sites, so the layer relies mostly on

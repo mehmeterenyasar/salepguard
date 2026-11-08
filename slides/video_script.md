@@ -58,7 +58,7 @@ that gap is the optimism we removed. Every species beats a bias-aware null model
 morio* and *A. pyramidalis*, stay below 0.6 and are left out of the index. Hotspots cluster on the Aegean,
 Marmara and eastern Mediterranean coasts, and the protection gap is the headline: Hatay, İzmir,
 Aydın, İstanbul and Gaziantep lead the ranking, 1,983 of 2,339 hotspot cells are robust to model
-uncertainty, and only 4.4 percent of the suitable area is protected, no more than Turkey's 4.5 percent
+uncertainty, and only 4.5 percent of the suitable area is protected, no more than Turkey's 4.5 percent
 overall; for the median species it is 7.2 percent. Under climate change the median species loses nine to fourteen percent of its Turkish range if it
 cannot disperse, and *Himantoglossum robertianum*, *Orchis anatolica* and *Ophrys lutea* lose a third to
 almost ninety percent."

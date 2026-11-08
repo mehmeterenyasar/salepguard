@@ -19,3 +19,6 @@ data/processed/covariates_future/
 
 # private team notes (Turkish prompts/briefings)
 team_notes/
+
+# rendered pitch video (uploaded to YouTube instead)
+slides/*.mp4

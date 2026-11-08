@@ -39,7 +39,7 @@ SOURCES = {
     "map": (
         "Travel time to cities 2015 (Weiss et al. 2018, Nature 553:333-336, doi:10.1038/nature25181), "
         "Malaria Atlas Project WCS",
-        "Malaria Atlas Project open-access policy: CC BY 3.0 Unported (TODO: verify dataset-specific licence)",
+        "CC BY 4.0 (dataset page, Malaria Atlas Project / Earth Engine catalog)",
         "https://malariaatlas.org/",
     ),
     "osm": (

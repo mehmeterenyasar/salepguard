@@ -1,7 +1,7 @@
 # Devpost submission text (copy and paste)
 
-> Numbers come from the final model (`outputs/risk/summary.json`, `docs/results_summary.md`). Replace every
-> remaining TODO.
+> Numbers come from the final model (`outputs/risk/summary.json`, `docs/results_summary.md`). Only the
+> video URL is left to fill in after the YouTube upload.
 
 **Project title:** SalepGuard
 
@@ -32,8 +32,9 @@ uncertainty-aware tool that shows where to focus monitoring, protection and sust
    OpenStreetMap/WDPA protected areas; geoBoundaries provinces.
 2. **Cleaning:** CoordinateCleaner-style filters leave 24,557 salep-genus records. 20 species meet the
    data-sufficiency rule. A target-group background corrects for sampling bias.
-3. **Models:** bias-corrected MaxEnt with spatial block cross-validation and bootstrap uncertainty, plus
-   an independent Python MaxEnt baseline as a robustness check.
+3. **Models:** bias-corrected MaxEnt (target-group background) tuned per species with spatial block
+   cross-validation, 20 bootstrap refits, MESS extrapolation checks and bias-aware null models, plus an
+   untuned random-CV baseline for comparison.
 4. **SalepGuard Priority Index:** Σ species suitability × harvest pressure × (1 − protected). Bootstrap
    uncertainty is propagated to identify *robust hotspots*.
 5. **Analyses:** Jaccard stability under alternative pressure weights and thresholding, climate-change
@@ -44,9 +45,9 @@ uncertainty-aware tool that shows where to focus monitoring, protection and sust
 
 ## Built with
 
-python, streamlit, folium, leaflet, plotly, rasterio, gdal, geopandas, shapely, numpy, pandas,
+python, streamlit, folium, leaflet, plotly, rasterio, gdal, geopandas, shapely, numpy, pandas, scipy,
 scikit-learn, elapid, maxent, matplotlib, gbif-api, worldclim, cmip6, worldpop, openstreetmap,
-overpass-api, geoboundaries, github, claude-code (TODO: add the teammate's R/Python packages)
+overpass-api, geoboundaries, github, claude-code
 
 ## Data sources
 
@@ -60,7 +61,7 @@ Project); OpenStreetMap (ODbL) / WDPA (UNEP-WCMC & IUCN); geoBoundaries (CC BY-S
 - 20 salep orchid species modelled. Final model, spatial block CV: mean AUC 0.72 (0.58–0.87), TSS 0.32,
   Boyce 0.58 (random CV would claim 0.76). All species beat a bias-aware null model; 2 with AUC < 0.6 are
   excluded from the index.
-- Only **4.4 %** of the area suitable for salep orchids lies inside protected areas, no more than the
+- Only **4.5 %** of the area suitable for salep orchids lies inside protected areas, no more than the
   4.5 % of Turkey protected in our layer. For the median species the figure is 7.2 %.
 - Priority hotspots concentrate on the Aegean, Marmara and eastern Mediterranean coasts. Top provinces
   are Hatay, İzmir, Aydın, İstanbul and Gaziantep. 1,983 of 2,339 hotspot cells remain hotspots at the lower
@@ -87,5 +88,5 @@ field validation with local partners, and a cultivation-suitability module.
 
 - GitHub: https://github.com/mehmeterenyasar/salepguard
 - Dashboard: https://salepguard.streamlit.app
-- Video: TODO
-- Slides (PDF): TODO
+- Video: <YouTube URL — paste after upload>
+- Slides (PDF): https://github.com/mehmeterenyasar/salepguard/blob/main/slides/salepguard_slides.pdf

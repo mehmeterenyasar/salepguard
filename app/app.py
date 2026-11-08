@@ -164,7 +164,7 @@ def page_overview():
         "**conservation prioritisation tool**."
     )
     c = st.columns(4)
-    c[0].metric("Species modelled", s["n_species"])
+    c[0].metric("Species in index", s["n_species"])
     c[1].metric("Cleaned occurrence records", f"{s['n_clean_records']:,}")
     c[2].metric(
         "Suitable area protected",

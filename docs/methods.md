@@ -142,7 +142,7 @@ own maxSSS, and the per-replicate binary maps give the richness SD.
 
 **Thresholding.** Main threshold maxSSS (maximum sensitivity + specificity, presence vs background) on
 the bootstrap-mean surface at the training cells. maxSSS is recommended for presence-only data because
-it does not depend on prevalence (Liu et al. 2013, TODO: verify). For comparison, the 10 % training-presence
+it does not depend on prevalence (Liu et al. 2013). For comparison, the 10 % training-presence
 threshold (`threshold_p10`) and the share of Turkey suitable under each threshold are reported in
 `metrics.csv`.
 
@@ -236,16 +236,16 @@ reads small files. Raw occurrence points are never displayed.
 - Weiss, D.J. et al. (2018) *Nature* 553: 333–336.
 - Fick, S.E. & Hijmans, R.J. (2017) *Int. J. Climatol.* 37: 4302–4315.
 
-Final model [modelling] (bibliographic details written from memory, TODO: verify each):
+Final model [modelling] (checked against Crossref, 8 Nov 2026):
 
-- Elith, J. et al. (2010) The art of modelling range-shifting species. *Methods in Ecology and Evolution* 1: 330–342.
-- Kass, J.M. et al. (2021) ENMeval 2.0: redesigned for customizable and reproducible modeling of species' niches and distributions. *Methods in Ecology and Evolution* 12: 1602–1608.
-- Liu, C., White, M. & Newell, G. (2013) Selecting thresholds for the prediction of species occurrence with presence-only data. *Journal of Biogeography* 40: 778–789.
-- Muscarella, R. et al. (2014) ENMeval: an R package for conducting spatially independent evaluations and estimating optimal model complexity for Maxent ecological niche models. *Methods in Ecology and Evolution* 5: 1198–1205.
-- Phillips, S.J. et al. (2017) Opening the black box: an open-source release of Maxent. *Ecography* 40: 887–893.
-- Raes, N. & ter Steege, H. (2007) A null-model for significance testing of presence-only species distribution models. *Ecography* 30: 727–736.
-- Radosavljevic, A. & Anderson, R.P. (2014) Making better Maxent models of species distributions: complexity, overfitting and evaluation. *Journal of Biogeography* 41: 629–643.
-- Valavi, R. et al. (2019) blockCV: an R package for generating spatially or environmentally separated folds for k-fold cross-validation of species distribution models. *Methods in Ecology and Evolution* 10: 225–232.
-- Anderson, C.B. elapid: species distribution modeling tools for Python, v1.0.4. https://github.com/earth-chris/elapid (TODO: verify author and citation form).
+- Elith, J. et al. (2010) The art of modelling range-shifting species. *Methods in Ecology and Evolution* 1(4): 330–342. doi:10.1111/j.2041-210X.2010.00036.x
+- Kass, J.M. et al. (2021) ENMeval 2.0: redesigned for customizable and reproducible modeling of species' niches and distributions. *Methods in Ecology and Evolution* 12(9): 1602–1608. doi:10.1111/2041-210X.13628
+- Liu, C., White, M. & Newell, G. (2013) Selecting thresholds for the prediction of species occurrence with presence-only data. *Journal of Biogeography* 40(4): 778–789. doi:10.1111/jbi.12058
+- Muscarella, R. et al. (2014) ENMeval: an R package for conducting spatially independent evaluations and estimating optimal model complexity for Maxent ecological niche models. *Methods in Ecology and Evolution* 5(11): 1198–1205. doi:10.1111/2041-210X.12261
+- Phillips, S.J. et al. (2017) Opening the black box: an open-source release of Maxent. *Ecography* 40(7): 887–893. doi:10.1111/ecog.03049
+- Raes, N. & ter Steege, H. (2007) A null-model for significance testing of presence-only species distribution models. *Ecography* 30(5): 727–736. doi:10.1111/j.2007.0906-7590.05041.x
+- Radosavljevic, A. & Anderson, R.P. (2014) Making better Maxent models of species distributions: complexity, overfitting and evaluation. *Journal of Biogeography* 41(4): 629–643. doi:10.1111/jbi.12227
+- Valavi, R. et al. (2019) blockCV: an R package for generating spatially or environmentally separated folds for k-fold cross-validation of species distribution models. *Methods in Ecology and Evolution* 10(2): 225–232. doi:10.1111/2041-210X.13107
+- Anderson, C.B. (2023) elapid: Species distribution modeling tools for Python. *Journal of Open Source Software* 8(84): 4930. doi:10.21105/joss.04930
 
-(TODO: verify all bibliographic details before submission.)
+

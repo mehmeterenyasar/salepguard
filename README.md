@@ -5,7 +5,8 @@ Where could salep orchids live, where is harvest pressure high, and which of tho
 protected areas?
 
 - **Live dashboard:** https://salepguard.streamlit.app
-- **Pitch video:** TODO: add YouTube/Vimeo URL
+- **Pitch video:** <YouTube URL — added after upload>
+- **Slides (PDF):** [slides/salepguard_slides.pdf](slides/salepguard_slides.pdf)
 - **Slides:** [`slides/`](slides/)
 - **Team status / handoff:** [`docs/HANDOFF.md`](docs/HANDOFF.md)
 
@@ -64,7 +65,7 @@ uncertainty.
 | Bioclim + elevation | WorldClim 2.1, 2.5′ | 1970–2000 | academic / non-commercial; no redistribution | Fick & Hijmans 2017, doi:10.1002/joc.5086 |
 | Future bioclim | WorldClim CMIP6 (MPI-ESM1-2-HR, IPSL-CM6A-LR, MIROC6) | SSP2-4.5, SSP5-8.5, 2041–2060 | as WorldClim | — |
 | Population density | WorldPop, 1 km UN-adj. | 2020 | CC BY 4.0 | doi:10.5258/SOTON/WP00674 |
-| Travel time to cities | Malaria Atlas Project | 2015 | CC BY 3.0 (TODO: verify) | Weiss et al. 2018, doi:10.1038/nature25181 |
+| Travel time to cities | Malaria Atlas Project | 2015 | CC BY 4.0 | Weiss et al. 2018, doi:10.1038/nature25181 |
 | Protected areas | WDPA (Nov 2026 public release; only 17 Turkish sites public) ∪ OpenStreetMap | Nov 2026 / 2026-11-07 | WDPA ToU / ODbL | UNEP-WCMC & IUCN (2026) Protected Planet: WDPA, Nov 2026 |
 | Province boundaries | geoBoundaries gbOpen TUR | 2023 build | CC BY-SA 2.0 | Runfola et al. 2020, doi:10.1371/journal.pone.0231866 |
 
@@ -96,7 +97,7 @@ You can find full details in [`docs/data_sources.md`](docs/data_sources.md) and 
 | Final model, spatial block CV (mean of 20 species) | AUC 0.72 (0.58–0.87), TSS 0.32, Boyce 0.58; all beat a bias-aware null model |
 | Baseline CV performance (mean of 20 species) | AUC 0.79 (0.64–0.91), TSS 0.49, Boyce 0.85 |
 | Share of Turkey protected (WDPA + OSM layer) | 4.5 % |
-| Share of salep-orchid suitable area protected | **4.4 %**, no better than a random placement of protected areas |
+| Share of salep-orchid suitable area protected | **4.5 %**, no better than a random placement of protected areas |
 | Median species: suitable area protected | 7.2 % |
 | Top-5 provinces by mean priority | Hatay, İzmir, Aydın, İstanbul, Gaziantep |
 | Hotspots (top 5 %) / robust hotspots | 2,339 / 1,983 cells (~40,000 km² hotspot area) |
@@ -220,10 +221,10 @@ EthnoHack 2026, Track 3. https://github.com/mehmeterenyasar/salepguard
 
 ### References
 
-- Sezik, E. (2002) Turkish orchids and salep. *Acta Pharmaceutica Turcica* 44: 151–157.
-- Kasparek, M. & Grimm, U. (1999) European trade in Turkish salep with special reference to Germany. *Economic Botany* 53: 396–406.
-- Molnár, V.A. et al. (2017) Turkish graveyards as refuges for orchids against tuber harvest. *Ecology and Evolution* 7: 11257–11264.
-- Kreziou, A., de Boer, H. & Gravendeel, B. (2016) Harvesting of salep orchids in north-western Greece continues to threaten natural populations. *Oryx* 50: 393–396.
-- Ghorbani, A. et al. (2014) Wild orchid tuber collection in Iran: a wake-up call for conservation. *Biodiversity and Conservation* 23: 2749–2760.
+- Sezik, E. (2002) Turkish orchids and salep. *Acta Pharmaceutica Turcica* 44(3): 151–157.
+- Kasparek, M. & Grimm, U. (1999) European trade in Turkish salep with special reference to Germany. *Economic Botany* 53(4): 396–406. doi:10.1007/BF02866718
+- Molnár, V.A. et al. (2017) Turkish graveyards as refuges for orchids against tuber harvest. *Ecology and Evolution* 7(24): 11257–11264. doi:10.1002/ece3.3562
+- Kreziou, A., de Boer, H. & Gravendeel, B. (2016) Harvesting of salep orchids in north-western Greece continues to threaten natural populations. *Oryx* 50(3): 393–396. doi:10.1017/S0030605315000265
+- Ghorbani, A. et al. (2014) Wild orchid tuber collection in Iran: a wake-up call for conservation. *Biodiversity and Conservation* 23(11): 2749–2760. doi:10.1007/s10531-014-0746-y
 
-(TODO: verify all bibliographic details before submission.)
+(Journal articles checked against Crossref on 8 Nov 2026; Sezik 2002 has no DOI and was checked against citing literature.)
