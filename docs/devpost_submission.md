@@ -87,5 +87,5 @@ field validation with local partners, and a cultivation-suitability module.
 
 - GitHub: https://github.com/mehmeterenyasar/salepguard
 - Dashboard: https://salepguard.streamlit.app
-- Video: https://youtu.be/XhjzKYrCOZ4
+- Video: https://youtu.be/T-AT_FDk0KM
 - Slides (PDF): https://github.com/mehmeterenyasar/salepguard/blob/main/slides/salepguard_slides.pdf
