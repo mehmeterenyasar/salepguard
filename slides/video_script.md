@@ -40,27 +40,35 @@ Population is from WorldPop, travel time from the Malaria Atlas Project, and pro
 OpenStreetMap."
 
 **4. Method (2:40–4:00)** (teammate)
-"For each of twenty species with enough data we fit a MaxEnt species distribution model. As background we
-used all orchid records, so the model compares like with like and corrects for where botanists tend to go.
-We validate with spatially blocked cross-validation and repeat every model on bootstrap samples, which
-gives each map cell an uncertainty. Then the SalepGuard Priority Index multiplies, for every species,
-habitat suitability by harvest pressure by one minus protection, and sums over species. We propagate the
-bootstrap uncertainty into the index. A robust hotspot is a place that stays in the top five percent even
-at the pessimistic end of that uncertainty."
+"Open orchid records are not a map of orchids; they are a map of where people looked. So we model each of
+twenty species against all orchid records, not against the whole landscape. This target-group background
+asks: where does this species occur, compared with where orchid recorders went? We use MaxEnt with six
+non-redundant climate variables, tune its complexity for each species, and validate with spatial blocks of
+two hundred kilometres, so the model is always tested in regions it has never seen. Every model is refitted
+twenty times on resampled data, which gives each map cell an uncertainty, and we flag where future climate
+is outside the training range. The SalepGuard Priority Index then multiplies suitability by harvest
+pressure and by one minus protection, and sums over species. A robust hotspot stays in the top five percent
+even at the pessimistic end of the propagated uncertainty."
+(Full version and figure cues: `slides/modeling_script.md`.)
 
 **5. Demo (4:00–6:30)**: see the click script below. Narrate each step in one sentence.
 
 **6. Results (6:30–7:30)** (teammate)
-"Hotspots cluster on the Aegean, Marmara and eastern Mediterranean coasts: İzmir, Aydın, Hatay and the
-Marmara provinces. Most of them stay hotspots under uncertainty. The headline is the protection gap. Only
-about four percent of the area suitable for salep orchids is inside a protected area, no more than
-Turkey's average, so the protected-area network is not targeting these species. Changing the pressure
-weights keeps almost ninety percent of the hotspot set."
+"Under spatial validation the average AUC is 0.72; random cross-validation would have claimed 0.76, and
+that gap is the optimism we removed. Every species beats a bias-aware null model, but two, *Anacamptis
+morio* and *A. pyramidalis*, stay below 0.6 and are left out of the index. Hotspots cluster on the Aegean,
+Marmara and eastern Mediterranean coasts, and the protection gap is the headline: [Mehmet: update
+hotspot, province and protected-share numbers from `outputs/risk/summary.json` after the final-model
+rerun]. Under climate change the median species loses nine to fourteen percent of its Turkish range if it
+cannot disperse, and *Himantoglossum robertianum*, *Orchis anatolica* and *Ophrys lutea* lose a third to
+almost ninety percent."
 
 **7. Limitations (7:30–8:10)** (teammate)
 "We want to be clear about what this is not. It is not a map of harvest or of orchids, and every hotspot
-needs field checks. Eastern Anatolia and the important genus *Dactylorhiza* are under-represented in open
-data. Our pressure layer is a proxy and over-rates big cities. The OpenStreetMap protected areas are
+needs field checks. Suitability is relative and background records are not true absences. Eastern
+Anatolia and the important genus *Dactylorhiza* are almost missing from open data, so the east is
+unknown, not empty. Future maps ignore fungi, pollinators and dispersal and rest on three climate models.
+Our pressure layer is a proxy and over-rates big cities, and the OpenStreetMap protected areas are
 incomplete."
 
 **8. Impact and close (8:10–8:40)**

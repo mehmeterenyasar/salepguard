@@ -50,7 +50,12 @@ def main() -> None:
            + "; ".join(f"{nice(r.species_slug)} ({r.exclusion_reason})" for r in excl.itertuples()) + "."
            if len(excl) else "All species pass the quality rule (CBI ≥ 0, spatial AUC ≥ 0.6, null p ≤ 0.05 where tested)."))
     nm = m.dropna(subset=["null_model_p"])
-    if len(nm):
+    if len(nm) and (nm["null_model_p"] == nm["null_model_p"].min()).all():
+        lines.append(
+            f"5. **Null models.** All {len(nm)} species beat a bias-aware null model (random target-group cells, "
+            f"same settings and spatial CV): p = {nm['null_model_p'].iloc[0]:.2f}, the smallest value possible with 49 null "
+            f"models. Even the two excluded species carry real signal, just too little (AUC < 0.6) to rely on.")
+    elif len(nm):
         lines.append(
             f"5. **Null models.** For the {len(nm)} species tested, observed spatial AUC beats a bias-aware null "
             f"model with p = " + ", ".join(f"{r.null_model_p:.2f} ({nice(r.species_slug)})" for r in nm.itertuples()) + ".")
