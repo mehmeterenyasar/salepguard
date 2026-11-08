@@ -1,7 +1,6 @@
 # Devpost submission text (copy and paste)
 
-> Numbers come from the final model (`outputs/risk/summary.json`, `docs/results_summary.md`). Only the
-> video URL is left to fill in after the YouTube upload.
+> Numbers come from the final model (`outputs/risk/summary.json`, `docs/results_summary.md`).
 
 **Project title:** SalepGuard
 
@@ -88,5 +87,5 @@ field validation with local partners, and a cultivation-suitability module.
 
 - GitHub: https://github.com/mehmeterenyasar/salepguard
 - Dashboard: https://salepguard.streamlit.app
-- Video: <YouTube URL — paste after upload>
+- Video: https://youtu.be/XhjzKYrCOZ4
 - Slides (PDF): https://github.com/mehmeterenyasar/salepguard/blob/main/slides/salepguard_slides.pdf

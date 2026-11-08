@@ -9,15 +9,15 @@
 - [x] Teammate's sections of `docs/methods.md`, `docs/limitations.md`, `docs/ai_usage.md` filled in
 
 ## Repository
-- [ ] Repo is public; LICENSE present; no `.env` or secrets committed (`git log -p | grep -i gbif_pwd` is empty)
-- [ ] README complete: dashboard, video and slide links; team names; all `TODO` resolved or explicitly marked
+- [x] Repo is public; LICENSE present; no `.env` or secrets committed (`git log -p | grep -i gbif_pwd` is empty)
+- [x] README complete: dashboard, video and slide links; team names; all `TODO` resolved or explicitly marked
 - [x] Every `TODO: verify` reference, DOI and licence checked against the source
 - [x] `pytest -q` and `ruff check` pass
 - [ ] Fresh clone: `pip install -r requirements-dev.txt && streamlit run app/app.py` works
 
 ## Deliverables
 - [x] Dashboard live on Streamlit Community Cloud (https://salepguard.streamlit.app); opens in a private window
-- [ ] Video ≤ 10 min, public or unlisted, link works while logged out
+- [x] Video ≤ 10 min, public or unlisted, link works while logged out
 - [x] Slides ≤ 10, exported to PDF in `slides/`
 - [ ] Devpost: all fields filled (`docs/devpost_submission.md`), track selected, both team members added,
       links working, submitted before the deadline
